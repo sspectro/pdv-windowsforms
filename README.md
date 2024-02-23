@@ -18,6 +18,10 @@
     <p>
     
     - Criar projeto - Aplicativo do Windows Forms(.NET Framework)
+    - Editar/Criar README e colocar estrutura básica
+    - Criar diretório readmeImages e colocar imagens para uso no README.md
+    - Editar/Criar `gitignore` e colocar configuração para `csharp,dotnetcore,windows,visualstudio`
+        >Use o site [gitignore.io](https://www.toptal.com/developers/gitignore/)
 
     </p>
 
