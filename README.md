@@ -9,6 +9,7 @@
 
 ## Documentação
 - [C#](https://learn.microsoft.com/pt-br/dotnet/csharp/)
+- [Adicionar chave ssh github](https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
 
 
 
