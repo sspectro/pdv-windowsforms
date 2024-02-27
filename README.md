@@ -1,7 +1,7 @@
 # PDV Completo em C#
 
 >Projeto de PDV completo em C# com MySql.
-> 
+> Nem todas as configurações estão iguais as do vídeo.
 >>Projeto desenvolvido no curso - Youtube [PDV Completo em C#](https://www.youtube.com/@PortalZatecSistemas)
 
 ## Ambiente de Desenvolvimento
@@ -40,6 +40,9 @@
 
     - Adicionar item - MenuStrip - ao form
     - Adicionar Itens no menu - Cadastros, Produtos, Movimentações, Relatórios e Sair
+        ````
+        Alterar propriedade `Names` dos menus: MenuCadastros, MenuProdutos, MenuMovimentacoes, MenuRelatorios, MenuSair
+        `````
     - Adicionar 4 PictureBox
         ```
         Incluir imagem na propriedade image do item img01 - Utilizar opção de import - Arquivo de recursos de projeto
@@ -57,7 +60,25 @@
         Menu Movimentações: 
         ````
         Menu Movimentações: Fluxo de caixa, Lançar venda, Entradas / Saídas, Despesas
-        ````      
+        ````
+        Menu Relatórios: 
+        ````
+        Produtos, Vendas, Movimentos, Entradas / Saídas, Despesas
+        ````
+    - Alterar propriedade `Names` dos submenus
+        Cadastros:
+        ````
+        MenuCadFuncionarios, MenuCadClientes, MenuCadUsuarios, MenuCadFornecedor
+        ````
+        Produtos:
+        ````
+        MenuProdProdutos, MenuProdEstoque 
+        ````
+        Movimentações:
+        ````
+        MenuMovFluxoDeCaixa, MenuMovLancarVenda, MenuMovEntradasSaidas, MenuMovDespesas 
+        ````
+
 
     </p>
 
