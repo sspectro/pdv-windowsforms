@@ -33,6 +33,40 @@
     ---
 
 
+1. <span style="color:383E42"><b>Criação Form Principal</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+
+    - Adicionar item - MenuStrip - ao form
+    - Adicionar Itens no menu - Cadastros, Produtos, Movimentações, Relatórios e Sair
+    - Adicionar 4 PictureBox
+        ```
+        Incluir imagem na propriedade image do item img01 - Utilizar opção de import - Arquivo de recursos de projeto
+        Inclusão das imagens form Principal - picturebox 2, 3, 4
+        ```
+    - Configurando Menu
+        Menu Cadastros: 
+        ````
+        Funcionários, Clientes, Usuários, Fornecedor
+        ````
+        Menu Produtos: 
+        ````
+        Produtos, Estoque
+        ````
+        Menu Movimentações: 
+        ````
+        Menu Movimentações: Fluxo de caixa, Lançar venda, Entradas / Saídas, Despesas
+        ````      
+
+    </p>
+
+    </details> 
+
+    ---
+
+
+
 
 ## Meta
 ><span style="color:383E42"><b>Cristiano Mendonça Gueivara</b> </span>
