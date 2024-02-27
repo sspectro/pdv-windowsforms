@@ -11,6 +11,7 @@
 - [C#](https://learn.microsoft.com/pt-br/dotnet/csharp/)
 - [Adicionar chave ssh github](https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
 - [freepik - Icons grátis](https://br.freepik.com/icone)
+- [pixabay.com](https://pixabay.com/pt/vectors/)
 
 
 
