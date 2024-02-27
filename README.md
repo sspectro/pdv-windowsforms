@@ -49,6 +49,7 @@
         Inclusão das imagens form Principal - picturebox 2, 3, 4
         ```
     - Configurando Menu
+    
         Menu Cadastros: 
         ````
         Funcionários, Clientes, Usuários, Fornecedor
@@ -66,6 +67,7 @@
         Produtos, Vendas, Movimentos, Entradas / Saídas, Despesas
         ````
     - Alterar propriedade `Names` dos submenus
+    
         Cadastros:
         ````
         MenuCadFuncionarios, MenuCadClientes, MenuCadUsuarios, MenuCadFornecedor
