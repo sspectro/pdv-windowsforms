@@ -16,5 +16,10 @@ namespace pdv_windowsforms
         {
             InitializeComponent();
         }
+
+        private void MenuSairPrincipal_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -212,6 +212,7 @@
             this.MenuSairPrincipal.Name = "MenuSairPrincipal";
             this.MenuSairPrincipal.Size = new System.Drawing.Size(38, 20);
             this.MenuSairPrincipal.Text = "Sair";
+            this.MenuSairPrincipal.Click += new System.EventHandler(this.MenuSairPrincipal_Click);
             // 
             // pictureBox5
             // 

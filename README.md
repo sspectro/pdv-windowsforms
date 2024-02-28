@@ -33,7 +33,7 @@
     ---
 
 
-1. <span style="color:383E42"><b>Criação Form Principal</b></span>
+1. <span style="color:383E42"><b>Criação e Configuração Form Principal</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
@@ -65,6 +65,15 @@
         Relatórios(name "MenuRelatorios"): 
         ````
         Produtos(name "MenuRelProdutos"), Vendas(name "MenuRelVendas"), Movimentos(name "MenuRelMovimentos"), Entradas / Saídas(name "MenuRelEntradasSaídas"), Despesas(name "MenuRelDespesas")
+        ````
+        Sair(name "MenuSairPrincipal")
+
+    - Criação evento Click Menu Sair(MenuSairPrincipal):
+        ````cs
+        private void MenuSairPrincipal_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         ````
 
 
