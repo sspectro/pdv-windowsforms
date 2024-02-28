@@ -48,37 +48,23 @@
         Incluir imagem na propriedade image do item img01 - Utilizar opção de import - Arquivo de recursos de projeto
         Inclusão das imagens form Principal - picturebox 2, 3, 4
         ```
-    - Configurando Menu
+    - Configurando Menu e Propriedade `name`
     
-        Menu Cadastros: 
+        Cadastros( name "MenuCadastros"): 
         ````
-        Funcionários, Clientes, Usuários, Fornecedor
+        Funcionários(name "MenuCadFuncionarios"), Clientes(name "MenuCadClientes"), Usuários(name "MenuCadUsuarios"), Fornecedor(name "MenuCadFornecedor")
         ````
-        Menu Produtos: 
+        Produtos(name "MenuProdutos"): 
         ````
-        Produtos, Estoque
+        Produtos(name "MenuProdProdutos"), Estoque(name "MenuProdEstoque")
         ````
-        Menu Movimentações: 
+        Movimentações(name "MenuMovimentacoes"): 
         ````
-        Menu Movimentações: Fluxo de caixa, Lançar venda, Entradas / Saídas, Despesas
+        Fluxo de caixa(name "MenuMovFluxoDeCaixa"), Lançar venda(name "MenuMovLancarVenda"), Entradas / Saídas(name "MenuMovEntradasSaidas"), Despesas(name "MenuMovDespesas")
         ````
-        Menu Relatórios: 
+        Relatórios(name "MenuRelatorios"): 
         ````
-        Produtos, Vendas, Movimentos, Entradas / Saídas, Despesas
-        ````
-    - Alterar propriedade `Names` dos submenus
-    
-        Cadastros:
-        ````
-        MenuCadFuncionarios, MenuCadClientes, MenuCadUsuarios, MenuCadFornecedor
-        ````
-        Produtos:
-        ````
-        MenuProdProdutos, MenuProdEstoque 
-        ````
-        Movimentações:
-        ````
-        MenuMovFluxoDeCaixa, MenuMovLancarVenda, MenuMovEntradasSaidas, MenuMovDespesas 
+        Produtos(name "MenuRelProdutos"), Vendas(name "MenuRelVendas"), Movimentos(name "MenuRelMovimentos"), Entradas / Saídas(name "MenuRelEntradasSaídas"), Despesas(name "MenuRelDespesas")
         ````
 
 

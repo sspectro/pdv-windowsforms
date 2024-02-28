@@ -30,29 +30,29 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MenuCadastros = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuProdutos = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuMovimentacoes = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuRelatorios = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.img01Carrinho = new System.Windows.Forms.PictureBox();
             this.MenuCadFuncionario = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuCadClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuCadUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuCadFornecedor = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuProdutos = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuProdProdutos = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuProdEstoque = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuMovimentacoes = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMovFluxoDeCaixa = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMovLancarVenda = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMovEntradasSaidas = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMovDespesas = new System.Windows.Forms.ToolStripMenuItem();
-            this.produtosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.movimentaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entradasSaídasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.despesasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuRelatorios = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuRelProdutos = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuRelVendas = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuRelMovimentos = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuRelEntradasSaídas = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuRelDespesas = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuSairPrincipal = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.img01Carrinho = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -67,7 +67,7 @@
             this.MenuProdutos,
             this.MenuMovimentacoes,
             this.MenuRelatorios,
-            this.MenuSair});
+            this.MenuSairPrincipal});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -85,6 +85,30 @@
             this.MenuCadastros.Size = new System.Drawing.Size(71, 20);
             this.MenuCadastros.Text = "Cadastros";
             // 
+            // MenuCadFuncionario
+            // 
+            this.MenuCadFuncionario.Name = "MenuCadFuncionario";
+            this.MenuCadFuncionario.Size = new System.Drawing.Size(180, 22);
+            this.MenuCadFuncionario.Text = "Funcionários";
+            // 
+            // MenuCadClientes
+            // 
+            this.MenuCadClientes.Name = "MenuCadClientes";
+            this.MenuCadClientes.Size = new System.Drawing.Size(180, 22);
+            this.MenuCadClientes.Text = "Clientes";
+            // 
+            // MenuCadUsuarios
+            // 
+            this.MenuCadUsuarios.Name = "MenuCadUsuarios";
+            this.MenuCadUsuarios.Size = new System.Drawing.Size(180, 22);
+            this.MenuCadUsuarios.Text = "Usuários";
+            // 
+            // MenuCadFornecedor
+            // 
+            this.MenuCadFornecedor.Name = "MenuCadFornecedor";
+            this.MenuCadFornecedor.Size = new System.Drawing.Size(180, 22);
+            this.MenuCadFornecedor.Text = "Fornecedor";
+            // 
             // MenuProdutos
             // 
             this.MenuProdutos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -93,6 +117,18 @@
             this.MenuProdutos.Name = "MenuProdutos";
             this.MenuProdutos.Size = new System.Drawing.Size(67, 20);
             this.MenuProdutos.Text = "Produtos";
+            // 
+            // MenuProdProdutos
+            // 
+            this.MenuProdProdutos.Name = "MenuProdProdutos";
+            this.MenuProdProdutos.Size = new System.Drawing.Size(180, 22);
+            this.MenuProdProdutos.Text = "Produtos";
+            // 
+            // MenuProdEstoque
+            // 
+            this.MenuProdEstoque.Name = "MenuProdEstoque";
+            this.MenuProdEstoque.Size = new System.Drawing.Size(180, 22);
+            this.MenuProdEstoque.Text = "Estoque";
             // 
             // MenuMovimentacoes
             // 
@@ -105,23 +141,77 @@
             this.MenuMovimentacoes.Size = new System.Drawing.Size(104, 20);
             this.MenuMovimentacoes.Text = "Movimentações";
             // 
+            // MenuMovFluxoDeCaixa
+            // 
+            this.MenuMovFluxoDeCaixa.Name = "MenuMovFluxoDeCaixa";
+            this.MenuMovFluxoDeCaixa.Size = new System.Drawing.Size(180, 22);
+            this.MenuMovFluxoDeCaixa.Text = "Fluxo de caixa";
+            // 
+            // MenuMovLancarVenda
+            // 
+            this.MenuMovLancarVenda.Name = "MenuMovLancarVenda";
+            this.MenuMovLancarVenda.Size = new System.Drawing.Size(180, 22);
+            this.MenuMovLancarVenda.Text = "Lançar Venda";
+            // 
+            // MenuMovEntradasSaidas
+            // 
+            this.MenuMovEntradasSaidas.Name = "MenuMovEntradasSaidas";
+            this.MenuMovEntradasSaidas.Size = new System.Drawing.Size(180, 22);
+            this.MenuMovEntradasSaidas.Text = "Entradas / Saídas";
+            // 
+            // MenuMovDespesas
+            // 
+            this.MenuMovDespesas.Name = "MenuMovDespesas";
+            this.MenuMovDespesas.Size = new System.Drawing.Size(180, 22);
+            this.MenuMovDespesas.Text = "Despesas";
+            // 
             // MenuRelatorios
             // 
             this.MenuRelatorios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.produtosToolStripMenuItem1,
-            this.vendasToolStripMenuItem,
-            this.movimentaçãoToolStripMenuItem,
-            this.entradasSaídasToolStripMenuItem1,
-            this.despesasToolStripMenuItem1});
+            this.MenuRelProdutos,
+            this.MenuRelVendas,
+            this.MenuRelMovimentos,
+            this.MenuRelEntradasSaídas,
+            this.MenuRelDespesas});
             this.MenuRelatorios.Name = "MenuRelatorios";
             this.MenuRelatorios.Size = new System.Drawing.Size(71, 20);
             this.MenuRelatorios.Text = "Relatórios";
             // 
-            // MenuSair
+            // MenuRelProdutos
             // 
-            this.MenuSair.Name = "MenuSair";
-            this.MenuSair.Size = new System.Drawing.Size(38, 20);
-            this.MenuSair.Text = "Sair";
+            this.MenuRelProdutos.Name = "MenuRelProdutos";
+            this.MenuRelProdutos.Size = new System.Drawing.Size(180, 22);
+            this.MenuRelProdutos.Text = "Produtos";
+            // 
+            // MenuRelVendas
+            // 
+            this.MenuRelVendas.Name = "MenuRelVendas";
+            this.MenuRelVendas.Size = new System.Drawing.Size(180, 22);
+            this.MenuRelVendas.Text = "Vendas";
+            // 
+            // MenuRelMovimentos
+            // 
+            this.MenuRelMovimentos.Name = "MenuRelMovimentos";
+            this.MenuRelMovimentos.Size = new System.Drawing.Size(180, 22);
+            this.MenuRelMovimentos.Text = "Movimentos";
+            // 
+            // MenuRelEntradasSaídas
+            // 
+            this.MenuRelEntradasSaídas.Name = "MenuRelEntradasSaídas";
+            this.MenuRelEntradasSaídas.Size = new System.Drawing.Size(180, 22);
+            this.MenuRelEntradasSaídas.Text = "Entradas / Saídas";
+            // 
+            // MenuRelDespesas
+            // 
+            this.MenuRelDespesas.Name = "MenuRelDespesas";
+            this.MenuRelDespesas.Size = new System.Drawing.Size(180, 22);
+            this.MenuRelDespesas.Text = "Despesas";
+            // 
+            // MenuSairPrincipal
+            // 
+            this.MenuSairPrincipal.Name = "MenuSairPrincipal";
+            this.MenuSairPrincipal.Size = new System.Drawing.Size(38, 20);
+            this.MenuSairPrincipal.Text = "Sair";
             // 
             // pictureBox5
             // 
@@ -163,96 +253,6 @@
             this.img01Carrinho.TabIndex = 1;
             this.img01Carrinho.TabStop = false;
             // 
-            // MenuCadFuncionario
-            // 
-            this.MenuCadFuncionario.Name = "MenuCadFuncionario";
-            this.MenuCadFuncionario.Size = new System.Drawing.Size(180, 22);
-            this.MenuCadFuncionario.Text = "Funcionários";
-            // 
-            // MenuCadClientes
-            // 
-            this.MenuCadClientes.Name = "MenuCadClientes";
-            this.MenuCadClientes.Size = new System.Drawing.Size(180, 22);
-            this.MenuCadClientes.Text = "Clientes";
-            // 
-            // MenuCadUsuarios
-            // 
-            this.MenuCadUsuarios.Name = "MenuCadUsuarios";
-            this.MenuCadUsuarios.Size = new System.Drawing.Size(180, 22);
-            this.MenuCadUsuarios.Text = "Usuários";
-            // 
-            // MenuCadFornecedor
-            // 
-            this.MenuCadFornecedor.Name = "MenuCadFornecedor";
-            this.MenuCadFornecedor.Size = new System.Drawing.Size(180, 22);
-            this.MenuCadFornecedor.Text = "Fornecedor";
-            // 
-            // MenuProdProdutos
-            // 
-            this.MenuProdProdutos.Name = "MenuProdProdutos";
-            this.MenuProdProdutos.Size = new System.Drawing.Size(180, 22);
-            this.MenuProdProdutos.Text = "Produtos";
-            // 
-            // MenuProdEstoque
-            // 
-            this.MenuProdEstoque.Name = "MenuProdEstoque";
-            this.MenuProdEstoque.Size = new System.Drawing.Size(180, 22);
-            this.MenuProdEstoque.Text = "Estoque";
-            // 
-            // MenuMovFluxoDeCaixa
-            // 
-            this.MenuMovFluxoDeCaixa.Name = "MenuMovFluxoDeCaixa";
-            this.MenuMovFluxoDeCaixa.Size = new System.Drawing.Size(180, 22);
-            this.MenuMovFluxoDeCaixa.Text = "Fluxo de caixa";
-            // 
-            // MenuMovLancarVenda
-            // 
-            this.MenuMovLancarVenda.Name = "MenuMovLancarVenda";
-            this.MenuMovLancarVenda.Size = new System.Drawing.Size(180, 22);
-            this.MenuMovLancarVenda.Text = "Lançar Venda";
-            // 
-            // MenuMovEntradasSaidas
-            // 
-            this.MenuMovEntradasSaidas.Name = "MenuMovEntradasSaidas";
-            this.MenuMovEntradasSaidas.Size = new System.Drawing.Size(180, 22);
-            this.MenuMovEntradasSaidas.Text = "Entradas / Saídas";
-            // 
-            // MenuMovDespesas
-            // 
-            this.MenuMovDespesas.Name = "MenuMovDespesas";
-            this.MenuMovDespesas.Size = new System.Drawing.Size(180, 22);
-            this.MenuMovDespesas.Text = "Despesas";
-            // 
-            // produtosToolStripMenuItem1
-            // 
-            this.produtosToolStripMenuItem1.Name = "produtosToolStripMenuItem1";
-            this.produtosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.produtosToolStripMenuItem1.Text = "Produtos";
-            // 
-            // vendasToolStripMenuItem
-            // 
-            this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.vendasToolStripMenuItem.Text = "Vendas";
-            // 
-            // movimentaçãoToolStripMenuItem
-            // 
-            this.movimentaçãoToolStripMenuItem.Name = "movimentaçãoToolStripMenuItem";
-            this.movimentaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.movimentaçãoToolStripMenuItem.Text = "Movimentos";
-            // 
-            // entradasSaídasToolStripMenuItem1
-            // 
-            this.entradasSaídasToolStripMenuItem1.Name = "entradasSaídasToolStripMenuItem1";
-            this.entradasSaídasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.entradasSaídasToolStripMenuItem1.Text = "Entradas / Saídas";
-            // 
-            // despesasToolStripMenuItem1
-            // 
-            this.despesasToolStripMenuItem1.Name = "despesasToolStripMenuItem1";
-            this.despesasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.despesasToolStripMenuItem1.Text = "Despesas";
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,7 +284,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuProdutos;
         private System.Windows.Forms.ToolStripMenuItem MenuMovimentacoes;
         private System.Windows.Forms.ToolStripMenuItem MenuRelatorios;
-        private System.Windows.Forms.ToolStripMenuItem MenuSair;
+        private System.Windows.Forms.ToolStripMenuItem MenuSairPrincipal;
         private System.Windows.Forms.PictureBox img01Carrinho;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -299,11 +299,11 @@
         private System.Windows.Forms.ToolStripMenuItem MenuMovLancarVenda;
         private System.Windows.Forms.ToolStripMenuItem MenuMovEntradasSaidas;
         private System.Windows.Forms.ToolStripMenuItem MenuMovDespesas;
-        private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem movimentaçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem entradasSaídasToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem despesasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem MenuRelProdutos;
+        private System.Windows.Forms.ToolStripMenuItem MenuRelVendas;
+        private System.Windows.Forms.ToolStripMenuItem MenuRelMovimentos;
+        private System.Windows.Forms.ToolStripMenuItem MenuRelEntradasSaídas;
+        private System.Windows.Forms.ToolStripMenuItem MenuRelDespesas;
     }
 }
 
