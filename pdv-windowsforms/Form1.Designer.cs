@@ -90,6 +90,7 @@
             this.MenuCadFuncionario.Name = "MenuCadFuncionario";
             this.MenuCadFuncionario.Size = new System.Drawing.Size(180, 22);
             this.MenuCadFuncionario.Text = "Funcionários";
+            this.MenuCadFuncionario.Click += new System.EventHandler(this.MenuCadFuncionario_Click);
             // 
             // MenuCadClientes
             // 

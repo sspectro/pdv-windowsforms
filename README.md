@@ -84,6 +84,28 @@
     ---
 
 
+1. <span style="color:383E42"><b>Criação Pasta cadastro e Form Cadastro(frmCadastro)</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    - Adicionar uma nova pasta "cadastro" ao projeto - Adicionar novo form frmCadastro na pasta criada
+
+    - Criar evento Click do Submenu Funcionários(MenuCadFuncionario - do Menu Cadastros)
+        ````cs
+        private void MenuCadFuncionario_Click(object sender, EventArgs e)
+        {
+            cadastro.frmCadastro frm=new cadastro.frmCadastro();
+
+            frm.ShowDialog();
+        }
+        ````
+
+
+    </p>
+
+    </details> 
+
+    ---
 
 
 ## Meta

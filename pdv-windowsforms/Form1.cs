@@ -21,5 +21,12 @@ namespace pdv_windowsforms
         {
             this.Close();
         }
+
+        private void MenuCadFuncionario_Click(object sender, EventArgs e)
+        {
+            cadastro.frmCadastro frm=new cadastro.frmCadastro();
+
+            frm.ShowDialog();
+        }
     }
 }
