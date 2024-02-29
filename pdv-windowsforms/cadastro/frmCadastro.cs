@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace pdv_windowsforms.cadastro
 {
-    public partial class frmCadastro : Form
+    public partial class FrmCadastro : Form
     {
-        public frmCadastro()
+        public FrmCadastro()
         {
             InitializeComponent();
         }

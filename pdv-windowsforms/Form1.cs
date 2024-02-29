@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace pdv_windowsforms
 {
-    public partial class Principal : Form
+    public partial class FrmPrincipal : Form
     {
-        public Principal()
+        public FrmPrincipal()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace pdv_windowsforms
 
         private void MenuCadFuncionario_Click(object sender, EventArgs e)
         {
-            cadastro.frmCadastro frm=new cadastro.frmCadastro();
+            cadastro.FrmCadastro frm=new cadastro.FrmCadastro();
 
             frm.ShowDialog();
         }

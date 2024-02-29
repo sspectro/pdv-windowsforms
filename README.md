@@ -11,7 +11,9 @@
 - [C#](https://learn.microsoft.com/pt-br/dotnet/csharp/)
 - [Adicionar chave ssh github](https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
 - [freepik - Icons grátis](https://br.freepik.com/icone)
-- [pixabay.com](https://pixabay.com/pt/vectors/)
+- [pixabay.com - Imagens e icons](https://pixabay.com/pt/vectors/)
+- [icoconverter.com - converter para icons](https://www.icoconverter.com/)
+- [canva.com criação de artes](https://www.canva.com/)
 
 
 
@@ -33,7 +35,7 @@
     ---
 
 
-1. <span style="color:383E42"><b>Criação e Configuração Form Principal</b></span>
+2. <span style="color:383E42"><b>Criação e Configuração Form Principal</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
@@ -84,7 +86,7 @@
     ---
 
 
-1. <span style="color:383E42"><b>Criação Pasta cadastro e Form Cadastro(frmCadastro)</b></span>
+3. <span style="color:383E42"><b>Criação Pasta cadastro e Form Cadastro(frmCadastro)</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
@@ -106,6 +108,33 @@
     </details> 
 
     ---
+
+
+4. <span style="color:383E42"><b>Alteração dos ícones dos forms e inclusão dos labels no form cadastro</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    - Renomeação dos nomes dos forms, propriedade `Name`
+        ````
+        Novo nome FrmPrincipal e FrmCadastro
+        ````
+
+    - Alteração ícone do form principal e cadastro
+        ```
+        Selecionar ícone na propriedade `Icon` do formulário
+        ```
+    - Inclusão dos labels no FrmCadastro:
+        ````
+        Nome, Telefone, Endereço, CPF, Cargo e Foto
+        ````
+
+
+    </p>
+
+    </details> 
+
+    ---
+
 
 
 ## Meta
