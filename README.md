@@ -101,19 +101,6 @@
             frm.ShowDialog();
         }
         ````
-
-
-    </p>
-
-    </details> 
-
-    ---
-
-
-4. <span style="color:383E42"><b>Alteração dos ícones dos forms e inclusão dos labels no form cadastro</b></span>
-    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
-    <p>
-
     - Renomeação dos nomes dos forms, propriedade `Name`
         ````
         Novo nome FrmPrincipal e FrmCadastro
@@ -127,6 +114,41 @@
         ````
         Nome, Telefone, Endereço, CPF, Cargo e Foto
         ````
+    - Inclusão dos TextBox do FrmCadastro:
+        ````
+        Nome, Telefone, Endereço, CPF
+        txtNome, txtTelefone, txtcEndereco, txtCPF
+        ````
+    - Inclusão ComboBox do FrmCadastro:
+        ````
+        Cargo
+        cmboxCadFuncCargo
+        ````
+    - Inclusão PictureBox do FrmCadastro:
+        ````
+        Foto
+        pictboxFoto
+        ````
+    - Inclusão DataGridView do FrmCadastro: 
+      Desabilitar inclusão pelo componente
+        ````
+        dtgridListFuncionarios
+        ````
+
+
+    
+
+    </p>
+
+    </details> 
+
+    ---
+
+
+4. <span style="color:383E42"><b>----------</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
 
 
     </p>

@@ -35,6 +35,15 @@
             this.lblCadFuncEndereco = new System.Windows.Forms.Label();
             this.lblCadFuncCargo = new System.Windows.Forms.Label();
             this.lblCadFuncFoto = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtTelefone = new System.Windows.Forms.TextBox();
+            this.txtEndereco = new System.Windows.Forms.TextBox();
+            this.txtCPF = new System.Windows.Forms.TextBox();
+            this.cmboxCargo = new System.Windows.Forms.ComboBox();
+            this.pictboxFoto = new System.Windows.Forms.PictureBox();
+            this.dtgridListFuncionarios = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgridListFuncionarios)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCadFuncNome
@@ -91,11 +100,74 @@
             this.lblCadFuncFoto.TabIndex = 5;
             this.lblCadFuncFoto.Text = "Foto";
             // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(73, 21);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(364, 20);
+            this.txtNome.TabIndex = 6;
+            // 
+            // txtTelefone
+            // 
+            this.txtTelefone.Location = new System.Drawing.Point(73, 81);
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(169, 20);
+            this.txtTelefone.TabIndex = 7;
+            this.txtTelefone.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // txtEndereco
+            // 
+            this.txtEndereco.Location = new System.Drawing.Point(73, 140);
+            this.txtEndereco.Name = "txtEndereco";
+            this.txtEndereco.Size = new System.Drawing.Size(364, 20);
+            this.txtEndereco.TabIndex = 8;
+            // 
+            // txtCPF
+            // 
+            this.txtCPF.Location = new System.Drawing.Point(508, 18);
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(123, 20);
+            this.txtCPF.TabIndex = 9;
+            // 
+            // cmboxCargo
+            // 
+            this.cmboxCargo.FormattingEnabled = true;
+            this.cmboxCargo.Location = new System.Drawing.Point(516, 103);
+            this.cmboxCargo.Name = "cmboxCargo";
+            this.cmboxCargo.Size = new System.Drawing.Size(121, 21);
+            this.cmboxCargo.TabIndex = 10;
+            // 
+            // pictboxFoto
+            // 
+            this.pictboxFoto.Location = new System.Drawing.Point(676, 18);
+            this.pictboxFoto.Name = "pictboxFoto";
+            this.pictboxFoto.Size = new System.Drawing.Size(119, 83);
+            this.pictboxFoto.TabIndex = 11;
+            this.pictboxFoto.TabStop = false;
+            // 
+            // dtgridListFuncionarios
+            // 
+            this.dtgridListFuncionarios.AllowUserToAddRows = false;
+            this.dtgridListFuncionarios.AllowUserToDeleteRows = false;
+            this.dtgridListFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgridListFuncionarios.Location = new System.Drawing.Point(24, 178);
+            this.dtgridListFuncionarios.Name = "dtgridListFuncionarios";
+            this.dtgridListFuncionarios.ReadOnly = true;
+            this.dtgridListFuncionarios.Size = new System.Drawing.Size(771, 295);
+            this.dtgridListFuncionarios.TabIndex = 12;
+            // 
             // FrmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(821, 485);
+            this.Controls.Add(this.dtgridListFuncionarios);
+            this.Controls.Add(this.pictboxFoto);
+            this.Controls.Add(this.cmboxCargo);
+            this.Controls.Add(this.txtCPF);
+            this.Controls.Add(this.txtEndereco);
+            this.Controls.Add(this.txtTelefone);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblCadFuncFoto);
             this.Controls.Add(this.lblCadFuncCargo);
             this.Controls.Add(this.lblCadFuncEndereco);
@@ -105,6 +177,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCadastro";
             this.Text = "Cadastro Funcionário";
+            ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgridListFuncionarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,5 +192,12 @@
         private System.Windows.Forms.Label lblCadFuncEndereco;
         private System.Windows.Forms.Label lblCadFuncCargo;
         private System.Windows.Forms.Label lblCadFuncFoto;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtTelefone;
+        private System.Windows.Forms.TextBox txtEndereco;
+        private System.Windows.Forms.TextBox txtCPF;
+        private System.Windows.Forms.ComboBox cmboxCargo;
+        private System.Windows.Forms.PictureBox pictboxFoto;
+        private System.Windows.Forms.DataGridView dtgridListFuncionarios;
     }
 }
