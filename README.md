@@ -134,6 +134,10 @@
         ````
         dtgridListFuncionarios
         ````
+    - Adicionar botões: 
+        ````
+        Novo(btnNovo), Salvar(btnSalvar), Editar(btnEditar), Excluir(btnExcluir)
+        ````
 
 
     

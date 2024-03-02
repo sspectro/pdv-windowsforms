@@ -42,6 +42,10 @@
             this.cmboxCargo = new System.Windows.Forms.ComboBox();
             this.pictboxFoto = new System.Windows.Forms.PictureBox();
             this.dtgridListFuncionarios = new System.Windows.Forms.DataGridView();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgridListFuncionarios)).BeginInit();
             this.SuspendLayout();
@@ -141,7 +145,7 @@
             // 
             this.pictboxFoto.Location = new System.Drawing.Point(676, 18);
             this.pictboxFoto.Name = "pictboxFoto";
-            this.pictboxFoto.Size = new System.Drawing.Size(119, 83);
+            this.pictboxFoto.Size = new System.Drawing.Size(133, 122);
             this.pictboxFoto.TabIndex = 11;
             this.pictboxFoto.TabStop = false;
             // 
@@ -153,14 +157,54 @@
             this.dtgridListFuncionarios.Location = new System.Drawing.Point(24, 178);
             this.dtgridListFuncionarios.Name = "dtgridListFuncionarios";
             this.dtgridListFuncionarios.ReadOnly = true;
-            this.dtgridListFuncionarios.Size = new System.Drawing.Size(771, 295);
+            this.dtgridListFuncionarios.Size = new System.Drawing.Size(785, 295);
             this.dtgridListFuncionarios.TabIndex = 12;
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(59, 499);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.TabIndex = 13;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(155, 499);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 14;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(256, 499);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 15;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(362, 499);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 16;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
             // 
             // FrmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 485);
+            this.ClientSize = new System.Drawing.Size(821, 534);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.dtgridListFuncionarios);
             this.Controls.Add(this.pictboxFoto);
             this.Controls.Add(this.cmboxCargo);
@@ -199,5 +243,9 @@
         private System.Windows.Forms.ComboBox cmboxCargo;
         private System.Windows.Forms.PictureBox pictboxFoto;
         private System.Windows.Forms.DataGridView dtgridListFuncionarios;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }
