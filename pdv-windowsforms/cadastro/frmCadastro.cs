@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Mysqlx.Connection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,10 +19,15 @@ namespace pdv_windowsforms.cadastro
             InitializeComponent();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
 
         }
 
+        private void FrmCadastro_Load(object sender, EventArgs e)
+        {
+
+
+        }
     }
 }

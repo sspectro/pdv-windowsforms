@@ -117,7 +117,6 @@
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(169, 20);
             this.txtTelefone.TabIndex = 7;
-            this.txtTelefone.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txtEndereco
             // 
@@ -177,6 +176,7 @@
             this.btnSalvar.TabIndex = 14;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnEditar
             // 
@@ -221,6 +221,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCadastro";
             this.Text = "Cadastro Funcionário";
+            this.Load += new System.EventHandler(this.FrmCadastro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgridListFuncionarios)).EndInit();
             this.ResumeLayout(false);

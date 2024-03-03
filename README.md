@@ -5,7 +5,7 @@
 >>Projeto desenvolvido no curso - Youtube [PDV Completo em C#](https://www.youtube.com/@PortalZatecSistemas)
 
 ## Ambiente de Desenvolvimento
-    C#, Windows, Microsoft Visual Studio, MySql
+    C#, Windows, Microsoft Visual Studio, xampp, MySql
 
 ## Documentação
 - [C#](https://learn.microsoft.com/pt-br/dotnet/csharp/)
@@ -14,6 +14,8 @@
 - [pixabay.com - Imagens e icons](https://pixabay.com/pt/vectors/)
 - [icoconverter.com - converter para icons](https://www.icoconverter.com/)
 - [canva.com criação de artes](https://www.canva.com/)
+- [xampp](https://www.apachefriends.org/pt_br/download.html)
+- [Nuget package MySql.Data](https://www.nuget.org/packages/MySql.Data/8.3.0?_src=template)
 
 
 
@@ -139,8 +141,30 @@
         Novo(btnNovo), Salvar(btnSalvar), Editar(btnEditar), Excluir(btnExcluir)
         ````
 
+    </p>
 
-    
+    </details> 
+
+    ---
+
+
+4. <span style="color:383E42"><b>Instalar o Xampp, Criar Database e Tabelas </b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    - [Coorrigir problema alerta ao instalar](https://www.youtube.com/watch?v=JDn4vzT9C38)
+    - Criar database `pdv`
+    - Criar tabela `funcionarios`:
+        ````
+        id - int - AI(auto Incremente)
+        nome - varchar - 80
+        cpf - varchar - 20
+        telefone - varchar - 20
+        cargo - varchar - 30
+        endereco -  varchar - 300
+        foto - longblob
+        ````
+    - Instalar via Nuget package `Mysql.Data` 
 
     </p>
 
@@ -149,7 +173,65 @@
     ---
 
 
-4. <span style="color:383E42"><b>----------</b></span>
+5. <span style="color:383E42"><b>Crir Classe de Conexão</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    Criar classe `Conexao.cs`
+    ````cs
+    using MySql.Data.MySqlClient;
+    using System;
+    using System.Windows.Forms;
+
+    namespace pdv_windowsforms
+    {
+        internal class Conexao
+        {
+            //Para uso em servidor local
+            public string conec = "server=localhost;uid=root;pwd=;database=pdv;port=;";
+
+
+            public MySqlConnection con = null;
+
+            public void abrirConexao()
+            {
+                try
+                {
+                    con = new MySqlConnection(conec);
+                    con.Open();
+                }catch (Exception ex)
+                {
+                    //Ao inves do throw ex; usar o messageBox, assim o sistema pode ser usado mesmo dando erro ao abrir o BD
+                    MessageBox.Show("Erro de conexao com o Banco de Dados"+ex.Message);
+                }
+            }
+
+            public void fecharConexao()
+            {
+                try
+                {
+                    con = new MySqlConnection(conec);
+                    con.Close();
+                    con.Dispose();//derruba algumas conexoes abertas
+                    con.ClearAllPoolsAsync();//Metodo de limpeza
+                }catch(Exception ex)
+                {
+                    //Ao inves do throw ex; usar o messageBox, assim o sistema pode ser usado mesmo dando erro ao abrir o BD
+                    MessageBox.Show("Erro de conexao com o Banco de Dados" + ex.Message);
+                }
+            }
+        }
+    }
+
+    ````
+
+    </p>
+
+    </details> 
+
+    ---
+
+6. <span style="color:383E42"><b>----------</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
