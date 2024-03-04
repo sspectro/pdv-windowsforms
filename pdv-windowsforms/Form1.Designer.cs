@@ -218,7 +218,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::pdv_windowsforms.Properties.Resources.Despesas;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(437, 45);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(219, 147);
@@ -228,7 +228,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::pdv_windowsforms.Properties.Resources.green_2084561_1280;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(108, 221);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(219, 147);
@@ -238,7 +238,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::pdv_windowsforms.Properties.Resources.cash_1501280;
+            this.pictureBox3.Image = global::pdv_windowsforms.Properties.Resources.green_2084561_1280;
             this.pictureBox3.Location = new System.Drawing.Point(437, 221);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(219, 147);
@@ -248,7 +248,7 @@
             // 
             // img01Carrinho
             // 
-            this.img01Carrinho.Image = global::pdv_windowsforms.Properties.Resources.empty_cart_10423297;
+            this.img01Carrinho.Image = global::pdv_windowsforms.Properties.Resources.CarringoCompra;
             this.img01Carrinho.Location = new System.Drawing.Point(108, 45);
             this.img01Carrinho.Name = "img01Carrinho";
             this.img01Carrinho.Size = new System.Drawing.Size(219, 147);

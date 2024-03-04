@@ -1,6 +1,6 @@
 ﻿namespace pdv_windowsforms.cadastro
 {
-    partial class FrmCadastro
+    partial class FrmFuncionario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastro));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFuncionario));
             this.lblCadFuncNome = new System.Windows.Forms.Label();
             this.lblCadFuncCPF = new System.Windows.Forms.Label();
             this.lblCadFuncTelefone = new System.Windows.Forms.Label();
             this.lblCadFuncEndereco = new System.Windows.Forms.Label();
             this.lblCadFuncCargo = new System.Windows.Forms.Label();
-            this.lblCadFuncFoto = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtTelefone = new System.Windows.Forms.TextBox();
             this.txtEndereco = new System.Windows.Forms.TextBox();
             this.txtCPF = new System.Windows.Forms.TextBox();
-            this.cmboxCargo = new System.Windows.Forms.ComboBox();
-            this.pictboxFoto = new System.Windows.Forms.PictureBox();
+            this.cbCargo = new System.Windows.Forms.ComboBox();
             this.dtgridListFuncionarios = new System.Windows.Forms.DataGridView();
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).BeginInit();
+            this.btnOpenDialog = new System.Windows.Forms.Button();
+            this.pictboxFoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgridListFuncionarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCadFuncNome
@@ -95,15 +95,6 @@
             this.lblCadFuncCargo.TabIndex = 4;
             this.lblCadFuncCargo.Text = "Cargo";
             // 
-            // lblCadFuncFoto
-            // 
-            this.lblCadFuncFoto.AutoSize = true;
-            this.lblCadFuncFoto.Location = new System.Drawing.Point(641, 21);
-            this.lblCadFuncFoto.Name = "lblCadFuncFoto";
-            this.lblCadFuncFoto.Size = new System.Drawing.Size(28, 13);
-            this.lblCadFuncFoto.TabIndex = 5;
-            this.lblCadFuncFoto.Text = "Foto";
-            // 
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(73, 21);
@@ -132,21 +123,13 @@
             this.txtCPF.Size = new System.Drawing.Size(123, 20);
             this.txtCPF.TabIndex = 9;
             // 
-            // cmboxCargo
+            // cbCargo
             // 
-            this.cmboxCargo.FormattingEnabled = true;
-            this.cmboxCargo.Location = new System.Drawing.Point(516, 103);
-            this.cmboxCargo.Name = "cmboxCargo";
-            this.cmboxCargo.Size = new System.Drawing.Size(121, 21);
-            this.cmboxCargo.TabIndex = 10;
-            // 
-            // pictboxFoto
-            // 
-            this.pictboxFoto.Location = new System.Drawing.Point(676, 18);
-            this.pictboxFoto.Name = "pictboxFoto";
-            this.pictboxFoto.Size = new System.Drawing.Size(133, 122);
-            this.pictboxFoto.TabIndex = 11;
-            this.pictboxFoto.TabStop = false;
+            this.cbCargo.FormattingEnabled = true;
+            this.cbCargo.Location = new System.Drawing.Point(516, 103);
+            this.cbCargo.Name = "cbCargo";
+            this.cbCargo.Size = new System.Drawing.Size(121, 21);
+            this.cbCargo.TabIndex = 10;
             // 
             // dtgridListFuncionarios
             // 
@@ -196,34 +179,54 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             // 
-            // FrmCadastro
+            // btnOpenDialog
+            // 
+            this.btnOpenDialog.Location = new System.Drawing.Point(594, 60);
+            this.btnOpenDialog.Name = "btnOpenDialog";
+            this.btnOpenDialog.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenDialog.TabIndex = 17;
+            this.btnOpenDialog.Text = "Foto";
+            this.btnOpenDialog.UseVisualStyleBackColor = true;
+            this.btnOpenDialog.Click += new System.EventHandler(this.btnOpenDialog_Click);
+            // 
+            // pictboxFoto
+            // 
+            this.pictboxFoto.Image = global::pdv_windowsforms.Properties.Resources.perfil;
+            this.pictboxFoto.Location = new System.Drawing.Point(676, 18);
+            this.pictboxFoto.Name = "pictboxFoto";
+            this.pictboxFoto.Size = new System.Drawing.Size(133, 122);
+            this.pictboxFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictboxFoto.TabIndex = 11;
+            this.pictboxFoto.TabStop = false;
+            // 
+            // FrmFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 534);
+            this.Controls.Add(this.btnOpenDialog);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.dtgridListFuncionarios);
             this.Controls.Add(this.pictboxFoto);
-            this.Controls.Add(this.cmboxCargo);
+            this.Controls.Add(this.cbCargo);
             this.Controls.Add(this.txtCPF);
             this.Controls.Add(this.txtEndereco);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.lblCadFuncFoto);
             this.Controls.Add(this.lblCadFuncCargo);
             this.Controls.Add(this.lblCadFuncEndereco);
             this.Controls.Add(this.lblCadFuncTelefone);
             this.Controls.Add(this.lblCadFuncCPF);
             this.Controls.Add(this.lblCadFuncNome);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmCadastro";
+            this.Name = "FrmFuncionario";
             this.Text = "Cadastro Funcionário";
             this.Load += new System.EventHandler(this.FrmCadastro_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgridListFuncionarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,17 +239,17 @@
         private System.Windows.Forms.Label lblCadFuncTelefone;
         private System.Windows.Forms.Label lblCadFuncEndereco;
         private System.Windows.Forms.Label lblCadFuncCargo;
-        private System.Windows.Forms.Label lblCadFuncFoto;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.TextBox txtCPF;
-        private System.Windows.Forms.ComboBox cmboxCargo;
+        private System.Windows.Forms.ComboBox cbCargo;
         private System.Windows.Forms.PictureBox pictboxFoto;
         private System.Windows.Forms.DataGridView dtgridListFuncionarios;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnOpenDialog;
     }
 }

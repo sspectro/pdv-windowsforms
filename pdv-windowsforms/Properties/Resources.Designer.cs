@@ -63,6 +63,16 @@ namespace pdv_windowsforms.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CarringoCompra {
+            get {
+                object obj = ResourceManager.GetObject("CarringoCompra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cash_1501280 {
             get {
                 object obj = ResourceManager.GetObject("cash_1501280", resourceCulture);
@@ -83,9 +93,9 @@ namespace pdv_windowsforms.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap empty_cart_10423297 {
+        internal static System.Drawing.Bitmap green_2084561_1280 {
             get {
-                object obj = ResourceManager.GetObject("empty-cart_10423297", resourceCulture);
+                object obj = ResourceManager.GetObject("green-2084561_1280", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +103,9 @@ namespace pdv_windowsforms.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap green_2084561_1280 {
+        internal static System.Drawing.Bitmap perfil {
             get {
-                object obj = ResourceManager.GetObject("green-2084561_1280", resourceCulture);
+                object obj = ResourceManager.GetObject("perfil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

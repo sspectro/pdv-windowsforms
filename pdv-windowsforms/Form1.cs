@@ -24,7 +24,7 @@ namespace pdv_windowsforms
 
         private void MenuCadFuncionario_Click(object sender, EventArgs e)
         {
-            cadastro.FrmCadastro frm=new cadastro.FrmCadastro();
+            cadastro.FrmFuncionario frm=new cadastro.FrmFuncionario();
 
             frm.ShowDialog();
         }
