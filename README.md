@@ -245,7 +245,7 @@
     - Criar função img() FrmFuncionario
     - Criar função limparFoto()
     - Código resultante:
-        ````
+        ````cs
         using MySql.Data.MySqlClient;
         using System;
         using System.IO;
@@ -338,6 +338,53 @@
 
     ---
 
+
+7. <span style="color:383E42"><b>Inclusão de Validação para Nome e CPF FrmFuncionario</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    - Validação `txtNome`
+        ````cs
+        //Tratar dados
+        if(txtNome.Text.ToString().Trim() == "")
+        {
+            MessageBox.Show("Preencha o campo nome", "Cadastro funcionários", MessageBox.ok, MessageBoxIcon.Warning);
+            txtNome.Text = "";
+            txtNome.Focus();
+            return;
+        }
+        ````
+    - Validação `txtCpf`
+    Exclusão do `txtCPF` do FrmFuncionario e inclusão do MaskedTextBox `txtCpf`
+        ````cs
+        if(txtCpf.Text == "   ,   ,   -" || txtCpf.Text.Length < 14)
+        {
+            MessageBox.Show("Preencha o campo CPF", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            txtCpf.Text = "";
+            txtCpf.Focus();
+            return;
+        }
+        ````
+
+    </p>
+
+    </details> 
+
+    ---
+
+8. <span style="color:383E42"><b>------</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    - xxxxx
+
+
+
+    </p>
+
+    </details> 
+
+    ---
 
 
 ## Meta

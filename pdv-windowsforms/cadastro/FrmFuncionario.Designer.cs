@@ -37,7 +37,6 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtTelefone = new System.Windows.Forms.TextBox();
             this.txtEndereco = new System.Windows.Forms.TextBox();
-            this.txtCPF = new System.Windows.Forms.TextBox();
             this.cbCargo = new System.Windows.Forms.ComboBox();
             this.dtgridListFuncionarios = new System.Windows.Forms.DataGridView();
             this.btnNovo = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnOpenDialog = new System.Windows.Forms.Button();
             this.pictboxFoto = new System.Windows.Forms.PictureBox();
+            this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgridListFuncionarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +62,7 @@
             // lblCadFuncCPF
             // 
             this.lblCadFuncCPF.AutoSize = true;
-            this.lblCadFuncCPF.Location = new System.Drawing.Point(475, 21);
+            this.lblCadFuncCPF.Location = new System.Drawing.Point(452, 21);
             this.lblCadFuncCPF.Name = "lblCadFuncCPF";
             this.lblCadFuncCPF.Size = new System.Drawing.Size(27, 13);
             this.lblCadFuncCPF.TabIndex = 1;
@@ -115,13 +115,6 @@
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(364, 20);
             this.txtEndereco.TabIndex = 8;
-            // 
-            // txtCPF
-            // 
-            this.txtCPF.Location = new System.Drawing.Point(508, 18);
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(123, 20);
-            this.txtCPF.TabIndex = 9;
             // 
             // cbCargo
             // 
@@ -199,11 +192,20 @@
             this.pictboxFoto.TabIndex = 11;
             this.pictboxFoto.TabStop = false;
             // 
+            // txtCpf
+            // 
+            this.txtCpf.Location = new System.Drawing.Point(485, 18);
+            this.txtCpf.Mask = "000.000.000-00";
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.Size = new System.Drawing.Size(184, 20);
+            this.txtCpf.TabIndex = 18;
+            // 
             // FrmFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 534);
+            this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.btnOpenDialog);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);
@@ -212,7 +214,6 @@
             this.Controls.Add(this.dtgridListFuncionarios);
             this.Controls.Add(this.pictboxFoto);
             this.Controls.Add(this.cbCargo);
-            this.Controls.Add(this.txtCPF);
             this.Controls.Add(this.txtEndereco);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.txtNome);
@@ -242,7 +243,6 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.TextBox txtEndereco;
-        private System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.ComboBox cbCargo;
         private System.Windows.Forms.PictureBox pictboxFoto;
         private System.Windows.Forms.DataGridView dtgridListFuncionarios;
@@ -251,5 +251,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnOpenDialog;
+        private System.Windows.Forms.MaskedTextBox txtCpf;
     }
 }

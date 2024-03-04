@@ -20,12 +20,27 @@ namespace pdv_windowsforms.cadastro
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            //Tratar dados
+            if(txtNome.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Preencha o campo nome", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNome.Text = "";
+                txtNome.Focus();
+                return;
+            }
+            if(txtCpf.Text == "   ,   ,   -" || txtCpf.Text.Length < 14)
+            {
+                MessageBox.Show("Preencha o campo CPF", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCpf.Text = "";
+                txtCpf.Focus();
+                return;
+            }
 
             con.abrirConexao();
             sql = "insert into funcionarios(nome, cpf, endereco, telefone, cargo, data, foto) values(@nome, @cpf, @endereco, @telefone, @cargo, curDate(), @foto)";
             cmd = new MySqlCommand(sql, con.con);
             cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-            cmd.Parameters.AddWithValue("@cpf", txtCPF.Text);
+            cmd.Parameters.AddWithValue("@cpf", txtCpf.Text);
             cmd.Parameters.AddWithValue("@endereco", txtEndereco.Text);
             cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
             cmd.Parameters.AddWithValue("@cargo", cbCargo.Text);
