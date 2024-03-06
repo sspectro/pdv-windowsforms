@@ -368,10 +368,12 @@
     - Exclusão `txtTelefone` e inclusão de campo MaskedTextBox `txtTelefone`
     
     - Incluir pasta `img` na pasta debug do projeto
+        A imagem que é incluída via função `limpaFoto()` deve ficar na pasta `debug`
         ````
         pdv-windowsforms\bin\Debug
         ````
     - Incluir chamada da função `limpaFoto` no evento load do `FrmCadastro`
+        Função inclui foto padrão para o campo foto.
         Obs.: Incluir imagem uma vez via propriedade Image do campo para, constar nos resources. Evitando erros.
         ````cs
         private void FrmCadastro_Load(object sender, EventArgs e)
@@ -388,11 +390,67 @@
 
     ---
 
-8. <span style="color:383E42"><b>------</b></span>
+8. <span style="color:383E42"><b>Criar Funções para Limpar, Habilitar/Desabilitar Campos FrmCadastro</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
-    - xxxxx
+    - Alterar nome `btnOpenDialog`para `btnFoto`
+    - Criar função `habilitarCampos`
+        ````cs
+        private void habilitarCampos()
+        {
+            btnSalvar.Enabled = true;
+            txtNome.Enabled = true;
+            txtCpf.Enabled = true;
+            txtEndereco.Enabled = true;
+            txtTelefone.Enabled = true;
+            btnCancelar.Enabled = true;
+            btnFoto.Enabled = true;
+            btnNovo.Enabled = false;
+        }
+        ````
+    - Criar função `limparCampos`
+        ````cs
+        private void limparCampos()
+        {
+            txtNome.Clear();
+            txtCpf.Clear();
+            txtEndereco.Clear();
+            txtTelefone.Clear();
+            
+        }
+        ````
+    - Criar função `desabilitarCampos`
+        ````cs
+        private void desabilitarCampos()
+        {
+            txtNome.Enabled=false;
+            txtCpf.Enabled=false;
+            txtEndereco.Enabled=false;
+            txtTelefone.Enabled=false;
+            cbCargo.Enabled=false;
+        }
+        ````
+    - Criar envento `btnNovo_Click` botão `Novo` form FrmCadastro
+        ````cs
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            habilitarCampos();
+        }
+        ````
+    - Incluir em evento click do botão `Salvar` FrmCadastro:
+        ````cs
+        limparFoto();
+
+        MessageBox.Show("Registro Salvao com Sucesso!","Cadastro funcionário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        btnNovo.Enabled = true;
+        btnSalvar.Enabled = false;
+        btnEditar.Enabled = false;
+        btnExcluir.Enabled = false;
+
+        limparCampos();
+        desabilitarCampos();
+        ````
 
 
 

@@ -42,10 +42,11 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnOpenDialog = new System.Windows.Forms.Button();
+            this.btnFoto = new System.Windows.Forms.Button();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.pictboxFoto = new System.Windows.Forms.PictureBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgridListFuncionarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).BeginInit();
             this.SuspendLayout();
@@ -136,6 +137,7 @@
             this.btnNovo.TabIndex = 13;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnSalvar
             // 
@@ -149,31 +151,32 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(256, 499);
+            this.btnEditar.Location = new System.Drawing.Point(342, 499);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 15;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(362, 499);
+            this.btnExcluir.Location = new System.Drawing.Point(435, 499);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 16;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             // 
-            // btnOpenDialog
+            // btnFoto
             // 
-            this.btnOpenDialog.Location = new System.Drawing.Point(594, 60);
-            this.btnOpenDialog.Name = "btnOpenDialog";
-            this.btnOpenDialog.Size = new System.Drawing.Size(75, 23);
-            this.btnOpenDialog.TabIndex = 17;
-            this.btnOpenDialog.Text = "Foto";
-            this.btnOpenDialog.UseVisualStyleBackColor = true;
-            this.btnOpenDialog.Click += new System.EventHandler(this.btnOpenDialog_Click);
+            this.btnFoto.Location = new System.Drawing.Point(594, 60);
+            this.btnFoto.Name = "btnFoto";
+            this.btnFoto.Size = new System.Drawing.Size(75, 23);
+            this.btnFoto.TabIndex = 17;
+            this.btnFoto.Text = "Foto";
+            this.btnFoto.UseVisualStyleBackColor = true;
+            this.btnFoto.Click += new System.EventHandler(this.btnOpenDialog_Click);
             // 
             // txtCpf
             // 
@@ -200,14 +203,24 @@
             this.pictboxFoto.TabIndex = 11;
             this.pictboxFoto.TabStop = false;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(251, 499);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
             // FrmFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 534);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.txtCpf);
-            this.Controls.Add(this.btnOpenDialog);
+            this.Controls.Add(this.btnFoto);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnSalvar);
@@ -249,8 +262,9 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnOpenDialog;
+        private System.Windows.Forms.Button btnFoto;
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

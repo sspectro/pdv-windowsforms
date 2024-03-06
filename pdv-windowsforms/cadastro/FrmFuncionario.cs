@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -49,6 +50,19 @@ namespace pdv_windowsforms.cadastro
 
             cmd.ExecuteNonQuery();
             con.fecharConexao();
+
+
+            limparFoto();
+            //listar();
+
+            MessageBox.Show("Registro Salvao com Sucesso!","Cadastro funcionário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+
+            limparCampos();
+            desabilitarCampos();
         }
 
         private void FrmCadastro_Load(object sender, EventArgs e)
@@ -91,6 +105,46 @@ namespace pdv_windowsforms.cadastro
         {
             pictboxFoto.Image = Properties.Resources.sem_foto2; //Aqui coloca a imagem sem foto na picutre do form
             foto = "img/sem_foto2.jpg"; //atribuido um caminho de foto (assim esta imagem tem que estar na pasta debug
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            habilitarCampos();
+        }
+
+        private void habilitarCampos()
+        {
+            btnSalvar.Enabled = true;
+            txtNome.Enabled = true;
+            txtCpf.Enabled = true;
+            txtEndereco.Enabled = true;
+            txtTelefone.Enabled = true;
+            btnCancelar.Enabled = true;
+            btnFoto.Enabled = true;
+            btnNovo.Enabled = false;
+        }
+
+        private void limparCampos()
+        {
+            txtNome.Clear();
+            txtCpf.Clear();
+            txtEndereco.Clear();
+            txtTelefone.Clear();
+            
+        }
+
+        private void desabilitarCampos()
+        {
+            txtNome.Enabled=false;
+            txtCpf.Enabled=false;
+            txtEndereco.Enabled=false;
+            txtTelefone.Enabled=false;
+            cbCargo.Enabled=false;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
