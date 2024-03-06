@@ -461,6 +461,20 @@
     ---
 
 
+9. <span style="color:383E42"><b>Criar Funções para Limpar, Habilitar/Desabilitar Campos FrmCadastro</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    - Alterar nome `btnOpenDialog`para `btnFoto`
+
+
+    </p>
+
+    </details> 
+
+    ---
+
+
 ## Meta
 ><span style="color:383E42"><b>Cristiano Mendonça Gueivara</b> </span>
 >
