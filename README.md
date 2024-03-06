@@ -339,7 +339,7 @@
     ---
 
 
-7. <span style="color:383E42"><b>Inclusão de Validação para Nome e CPF FrmFuncionario</b></span>
+7. <span style="color:383E42"><b>Validação para `Nome` e `CPF` FrmFuncionario - Inclusão Máscara </b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
@@ -365,6 +365,22 @@
             return;
         }
         ````
+    - Exclusão `txtTelefone` e inclusão de campo MaskedTextBox `txtTelefone`
+    
+    - Incluir pasta `img` na pasta debug do projeto
+        ````
+        pdv-windowsforms\bin\Debug
+        ````
+    - Incluir chamada da função `limpaFoto` no evento load do `FrmCadastro`
+        Obs.: Incluir imagem uma vez via propriedade Image do campo para, constar nos resources. Evitando erros.
+        ````cs
+        private void FrmCadastro_Load(object sender, EventArgs e)
+        {
+            limparFoto();
+
+        }
+        ````
+
 
     </p>
 

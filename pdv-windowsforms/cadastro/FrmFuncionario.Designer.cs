@@ -35,7 +35,6 @@
             this.lblCadFuncEndereco = new System.Windows.Forms.Label();
             this.lblCadFuncCargo = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtTelefone = new System.Windows.Forms.TextBox();
             this.txtEndereco = new System.Windows.Forms.TextBox();
             this.cbCargo = new System.Windows.Forms.ComboBox();
             this.dtgridListFuncionarios = new System.Windows.Forms.DataGridView();
@@ -44,8 +43,9 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnOpenDialog = new System.Windows.Forms.Button();
-            this.pictboxFoto = new System.Windows.Forms.PictureBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.pictboxFoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgridListFuncionarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).BeginInit();
             this.SuspendLayout();
@@ -102,18 +102,11 @@
             this.txtNome.Size = new System.Drawing.Size(364, 20);
             this.txtNome.TabIndex = 6;
             // 
-            // txtTelefone
-            // 
-            this.txtTelefone.Location = new System.Drawing.Point(73, 81);
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(169, 20);
-            this.txtTelefone.TabIndex = 7;
-            // 
             // txtEndereco
             // 
             this.txtEndereco.Location = new System.Drawing.Point(73, 140);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(364, 20);
+            this.txtEndereco.Size = new System.Drawing.Size(564, 20);
             this.txtEndereco.TabIndex = 8;
             // 
             // cbCargo
@@ -182,16 +175,6 @@
             this.btnOpenDialog.UseVisualStyleBackColor = true;
             this.btnOpenDialog.Click += new System.EventHandler(this.btnOpenDialog_Click);
             // 
-            // pictboxFoto
-            // 
-            this.pictboxFoto.Image = global::pdv_windowsforms.Properties.Resources.perfil;
-            this.pictboxFoto.Location = new System.Drawing.Point(676, 18);
-            this.pictboxFoto.Name = "pictboxFoto";
-            this.pictboxFoto.Size = new System.Drawing.Size(133, 122);
-            this.pictboxFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictboxFoto.TabIndex = 11;
-            this.pictboxFoto.TabStop = false;
-            // 
             // txtCpf
             // 
             this.txtCpf.Location = new System.Drawing.Point(485, 18);
@@ -200,11 +183,29 @@
             this.txtCpf.Size = new System.Drawing.Size(184, 20);
             this.txtCpf.TabIndex = 18;
             // 
+            // txtTelefone
+            // 
+            this.txtTelefone.Location = new System.Drawing.Point(76, 78);
+            this.txtTelefone.Mask = "(99) 00000-0000";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(176, 20);
+            this.txtTelefone.TabIndex = 19;
+            // 
+            // pictboxFoto
+            // 
+            this.pictboxFoto.Location = new System.Drawing.Point(676, 18);
+            this.pictboxFoto.Name = "pictboxFoto";
+            this.pictboxFoto.Size = new System.Drawing.Size(133, 122);
+            this.pictboxFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictboxFoto.TabIndex = 11;
+            this.pictboxFoto.TabStop = false;
+            // 
             // FrmFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 534);
+            this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.btnOpenDialog);
             this.Controls.Add(this.btnExcluir);
@@ -215,7 +216,6 @@
             this.Controls.Add(this.pictboxFoto);
             this.Controls.Add(this.cbCargo);
             this.Controls.Add(this.txtEndereco);
-            this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblCadFuncCargo);
             this.Controls.Add(this.lblCadFuncEndereco);
@@ -241,7 +241,6 @@
         private System.Windows.Forms.Label lblCadFuncEndereco;
         private System.Windows.Forms.Label lblCadFuncCargo;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.ComboBox cbCargo;
         private System.Windows.Forms.PictureBox pictboxFoto;
@@ -252,5 +251,6 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnOpenDialog;
         private System.Windows.Forms.MaskedTextBox txtCpf;
+        private System.Windows.Forms.MaskedTextBox txtTelefone;
     }
 }

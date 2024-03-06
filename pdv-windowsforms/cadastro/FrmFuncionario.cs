@@ -53,7 +53,7 @@ namespace pdv_windowsforms.cadastro
 
         private void FrmCadastro_Load(object sender, EventArgs e)
         {
-
+            limparFoto();
 
         }
 
@@ -89,8 +89,8 @@ namespace pdv_windowsforms.cadastro
         }
         private void limparFoto()
         {
-            pictboxFoto.Image = Properties.Resources.perfil; //Aqui coloca a imagem sem foto na picutre do form
-            foto = "img/sem_foto.jpg"; //atribuido um caminho de foto (assim esta imagem tem que estar na pasta debug
+            pictboxFoto.Image = Properties.Resources.sem_foto2; //Aqui coloca a imagem sem foto na picutre do form
+            foto = "img/sem_foto2.jpg"; //atribuido um caminho de foto (assim esta imagem tem que estar na pasta debug
         }
     }
 }
