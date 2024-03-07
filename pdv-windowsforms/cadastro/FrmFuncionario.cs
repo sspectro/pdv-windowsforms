@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
@@ -17,6 +18,12 @@ namespace pdv_windowsforms.cadastro
         public FrmFuncionario()
         {
             InitializeComponent();
+        }
+        private void FrmCadastro_Load(object sender, EventArgs e)
+        {
+            limparFoto();
+            listar();
+
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -53,7 +60,7 @@ namespace pdv_windowsforms.cadastro
 
 
             limparFoto();
-            //listar();
+            listar();
 
             MessageBox.Show("Registro Salvao com Sucesso!","Cadastro funcionário", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnNovo.Enabled = true;
@@ -65,11 +72,6 @@ namespace pdv_windowsforms.cadastro
             desabilitarCampos();
         }
 
-        private void FrmCadastro_Load(object sender, EventArgs e)
-        {
-            limparFoto();
-
-        }
 
         private void btnOpenDialog_Click(object sender, EventArgs e)
         {
@@ -140,6 +142,19 @@ namespace pdv_windowsforms.cadastro
             txtEndereco.Enabled=false;
             txtTelefone.Enabled=false;
             cbCargo.Enabled=false;
+        }
+
+        private void listar()
+        {
+            con.abrirConexao();
+            sql = "select * from funcionarios order by nome asc";
+            cmd = new MySqlCommand(sql, con.con);
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
+            dataAdapter.SelectCommand = cmd;
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            dtgridListFuncionarios.DataSource = dataTable;
+            con.fecharConexao();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

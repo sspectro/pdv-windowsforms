@@ -161,6 +161,7 @@
         cpf - varchar - 20
         telefone - varchar - 20
         cargo - varchar - 30
+        data - date
         endereco -  varchar - 300
         foto - longblob
         ````
@@ -461,11 +462,43 @@
     ---
 
 
-9. <span style="color:383E42"><b>Criar Funções para Limpar, Habilitar/Desabilitar Campos FrmCadastro</b></span>
+9. <span style="color:383E42"><b>Criar Função `listar()`</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
-    - Alterar nome `btnOpenDialog`para `btnFoto`
+    - Criar função `listar()` para trazer os dados para o `datagrid` FrmFuncionario
+        ````cs
+        private void listar()
+        {
+            con.abrirConexao();
+            sql = "select * from funcionarios order by nome asc";
+            cmd = new MySqlCommand(sql, con.con);
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
+            dataAdapter.SelectCommand = cmd;
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            dtgridListFuncionarios.DataSource = dataTable;
+            con.fecharConexao();
+        }
+        ````
+
+    - Incluir chamada método `listar()` no evento load do FrmCadastro e evento click de btnSalvar
+        FrmCadastro_Load
+        ````cs
+        private void FrmCadastro_Load(object sender, EventArgs e)
+        {
+            limparFoto();
+            listar();
+
+        }
+        ````
+        btnSalvar_Click
+        ````cs
+        //...
+        limparFoto();
+        listar();
+        //...
+        ````
 
 
     </p>
