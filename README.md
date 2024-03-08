@@ -527,17 +527,22 @@
     ---
 
 
-10. <span style="color:383E42"><b>Capturar e Validar Dados do dataGrid `dtgridListFuncionarios`</b></span>
+10. <span style="color:383E42"><b>Capturar Validar Dados e Exibir Imagem do dataGrid `dtgridListFuncionarios`</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
     - Criar evento para duplo click na celula grid `dtgridListFuncionarios`
+        Trata imagem
         ````cs
         private void dtgridListFuncionarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex > -1)
             {
                 habilitarCampos();
+                btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
+                btnSalvar.Enabled = false;
+                btnNovo.Enabled = false;
 
                 txtNome.Text = dtgridListFuncionarios.CurrentRow.Cells[1].Value.ToString();
                 txtCpf.Text = dtgridListFuncionarios.CurrentRow.Cells[2].Value.ToString();
@@ -545,15 +550,69 @@
                 cbCargo.Text = dtgridListFuncionarios.CurrentRow.Cells[4].Value.ToString();
                 txtEndereco.Text = dtgridListFuncionarios.CurrentRow.Cells[6].Value.ToString();
 
+                if (dtgridListFuncionarios.CurrentRow.Cells[7].Value != DBNull.Value)
+                {
+                    //Criada var byte[] imagem para receber convertido em byte o que vem da grid
+                    byte[] imagem = (byte[])dtgridListFuncionarios.Rows[e.RowIndex].Cells[7].Value;
+                    MemoryStream ms = new MemoryStream(imagem);
+
+                    // O componente Image sempre pede um System.Drawing então...
+                    // Passando o memorystream no objeto que ele recebe um System.Drawing e seu parametro FromStream
+                    pictboxFoto.Image = System.Drawing.Image.FromStream(ms);
+                }
+                else
+                {
+                    pictboxFoto.Image = Properties.Resources.sem_foto2; //Aqui coloca a imagem sem foto na picture do form
+                }
+
+            }else
+            {
+                return;
             }
-        }
         ````
     - Colocar foco campo nome evento click `btnNovo` FrmFuncionario
         ````cs
         txtNome.Focus();
         ````
     - Configurar ordem dos campos para seleção/edição propridade `TabIndex`
+    - Criação evento click botão cancelar btnCancelar
+        ````cs
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            btnNovo.Enabled = true;
+
+            desabilitarCampos();
+            limparCampos();
+
+        }
+        ````
+    - Incluir chamada método limparCampos() ao evento click do botão Novo
+        ````cs
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            habilitarCampos();
+            limparCampos() ;
+            txtNome.Focus();
+        }
+        ````
  
+
+    </p>
+
+    </details> 
+
+    ---
+
+
+10. <span style="color:383E42"><b>-----</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    
+
 
     </p>
 

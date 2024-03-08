@@ -113,6 +113,7 @@ namespace pdv_windowsforms.cadastro
         private void btnNovo_Click(object sender, EventArgs e)
         {
             habilitarCampos();
+            limparCampos() ;
             txtNome.Focus();
         }
 
@@ -188,6 +189,10 @@ namespace pdv_windowsforms.cadastro
             if(e.RowIndex > -1)
             {
                 habilitarCampos();
+                btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
+                btnSalvar.Enabled = false;
+                btnNovo.Enabled = false;
 
                 txtNome.Text = dtgridListFuncionarios.CurrentRow.Cells[1].Value.ToString();
                 txtCpf.Text = dtgridListFuncionarios.CurrentRow.Cells[2].Value.ToString();
@@ -195,8 +200,37 @@ namespace pdv_windowsforms.cadastro
                 cbCargo.Text = dtgridListFuncionarios.CurrentRow.Cells[4].Value.ToString();
                 txtEndereco.Text = dtgridListFuncionarios.CurrentRow.Cells[6].Value.ToString();
 
+                if (dtgridListFuncionarios.CurrentRow.Cells[7].Value != DBNull.Value)
+                {
+                    //Criada var byte[] imagem para receber convertido em byte o que vem da grid
+                    byte[] imagem = (byte[])dtgridListFuncionarios.Rows[e.RowIndex].Cells[7].Value;
+                    MemoryStream ms = new MemoryStream(imagem);
+
+                    // O componente Image sempre pede um System.Drawing então...
+                    // Passando o memorystream no objeto que ele recebe um System.Drawing e seu parametro FromStream
+                    pictboxFoto.Image = System.Drawing.Image.FromStream(ms);
+                }
+                else
+                {
+                    pictboxFoto.Image = Properties.Resources.sem_foto2; //Aqui coloca a imagem sem foto na picture do form
+                }
+
+            }else
+            {
+                return;
             }
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            btnNovo.Enabled = true;
+
+            desabilitarCampos();
+            limparCampos();
+
+        }
     }
 }
