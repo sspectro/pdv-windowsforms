@@ -29,14 +29,14 @@ namespace pdv_windowsforms.cadastro
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             //Tratar dados
-            if(txtNome.Text.ToString().Trim() == "")
+            if (txtNome.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Preencha o campo nome", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNome.Text = "";
                 txtNome.Focus();
                 return;
             }
-            if(txtCpf.Text == "   ,   ,   -" || txtCpf.Text.Length < 14)
+            if (txtCpf.Text == "   ,   ,   -" || txtCpf.Text.Length < 14)
             {
                 MessageBox.Show("Preencha o campo CPF", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCpf.Text = "";
@@ -62,13 +62,14 @@ namespace pdv_windowsforms.cadastro
             limparFoto();
             listar();
 
-            MessageBox.Show("Registro Salvao com Sucesso!","Cadastro funcionário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Registro Salvao com Sucesso!", "Cadastro funcionário", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnNovo.Enabled = true;
             btnSalvar.Enabled = false;
             btnEditar.Enabled = false;
             btnExcluir.Enabled = false;
 
             limparCampos();
+            
             desabilitarCampos();
         }
 
@@ -89,7 +90,7 @@ namespace pdv_windowsforms.cadastro
         private byte[] img()//Este metodo é padrão, serve sempre que desejar enviar imagem para o banco de dados
         {
             byte[] imagem_byte = null;
-            if(foto == "") //a string foto, nuca vai estar vazia, porque no metodo LimparFoto() foi passado o caminho de uma imagem
+            if (foto == "") //a string foto, nuca vai estar vazia, porque no metodo LimparFoto() foi passado o caminho de uma imagem
             {
                 return null;
             }
@@ -112,6 +113,7 @@ namespace pdv_windowsforms.cadastro
         private void btnNovo_Click(object sender, EventArgs e)
         {
             habilitarCampos();
+            txtNome.Focus();
         }
 
         private void habilitarCampos()
@@ -132,16 +134,16 @@ namespace pdv_windowsforms.cadastro
             txtCpf.Clear();
             txtEndereco.Clear();
             txtTelefone.Clear();
-            
+
         }
 
         private void desabilitarCampos()
         {
-            txtNome.Enabled=false;
-            txtCpf.Enabled=false;
-            txtEndereco.Enabled=false;
-            txtTelefone.Enabled=false;
-            cbCargo.Enabled=false;
+            txtNome.Enabled = false;
+            txtCpf.Enabled = false;
+            txtEndereco.Enabled = false;
+            txtTelefone.Enabled = false;
+            cbCargo.Enabled = false;
         }
 
         private void listar()
@@ -180,5 +182,21 @@ namespace pdv_windowsforms.cadastro
         {
 
         }
+
+        private void dtgridListFuncionarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > -1)
+            {
+                habilitarCampos();
+
+                txtNome.Text = dtgridListFuncionarios.CurrentRow.Cells[1].Value.ToString();
+                txtCpf.Text = dtgridListFuncionarios.CurrentRow.Cells[2].Value.ToString();
+                txtTelefone.Text = dtgridListFuncionarios.CurrentRow.Cells[3].Value.ToString();
+                cbCargo.Text = dtgridListFuncionarios.CurrentRow.Cells[4].Value.ToString();
+                txtEndereco.Text = dtgridListFuncionarios.CurrentRow.Cells[6].Value.ToString();
+
+            }
+        }
+
     }
 }

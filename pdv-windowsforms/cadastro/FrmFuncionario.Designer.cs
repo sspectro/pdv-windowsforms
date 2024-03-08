@@ -90,7 +90,7 @@
             // lblCadFuncCargo
             // 
             this.lblCadFuncCargo.AutoSize = true;
-            this.lblCadFuncCargo.Location = new System.Drawing.Point(475, 106);
+            this.lblCadFuncCargo.Location = new System.Drawing.Point(339, 80);
             this.lblCadFuncCargo.Name = "lblCadFuncCargo";
             this.lblCadFuncCargo.Size = new System.Drawing.Size(35, 13);
             this.lblCadFuncCargo.TabIndex = 4;
@@ -108,15 +108,15 @@
             this.txtEndereco.Location = new System.Drawing.Point(73, 140);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(564, 20);
-            this.txtEndereco.TabIndex = 8;
+            this.txtEndereco.TabIndex = 10;
             // 
             // cbCargo
             // 
             this.cbCargo.FormattingEnabled = true;
-            this.cbCargo.Location = new System.Drawing.Point(516, 103);
+            this.cbCargo.Location = new System.Drawing.Point(380, 77);
             this.cbCargo.Name = "cbCargo";
             this.cbCargo.Size = new System.Drawing.Size(121, 21);
-            this.cbCargo.TabIndex = 10;
+            this.cbCargo.TabIndex = 9;
             // 
             // dtgridListFuncionarios
             // 
@@ -128,6 +128,7 @@
             this.dtgridListFuncionarios.ReadOnly = true;
             this.dtgridListFuncionarios.Size = new System.Drawing.Size(785, 295);
             this.dtgridListFuncionarios.TabIndex = 12;
+            this.dtgridListFuncionarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgridListFuncionarios_CellDoubleClick);
             // 
             // btnNovo
             // 
@@ -170,7 +171,7 @@
             // 
             // btnFoto
             // 
-            this.btnFoto.Location = new System.Drawing.Point(594, 60);
+            this.btnFoto.Location = new System.Drawing.Point(594, 77);
             this.btnFoto.Name = "btnFoto";
             this.btnFoto.Size = new System.Drawing.Size(75, 23);
             this.btnFoto.TabIndex = 17;
@@ -184,7 +185,7 @@
             this.txtCpf.Mask = "000.000.000-00";
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(184, 20);
-            this.txtCpf.TabIndex = 18;
+            this.txtCpf.TabIndex = 7;
             // 
             // txtTelefone
             // 
@@ -192,7 +193,7 @@
             this.txtTelefone.Mask = "(99) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(176, 20);
-            this.txtTelefone.TabIndex = 19;
+            this.txtTelefone.TabIndex = 8;
             // 
             // pictboxFoto
             // 

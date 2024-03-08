@@ -527,6 +527,42 @@
     ---
 
 
+10. <span style="color:383E42"><b>Capturar e Validar Dados do dataGrid `dtgridListFuncionarios`</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    - Criar evento para duplo click na celula grid `dtgridListFuncionarios`
+        ````cs
+        private void dtgridListFuncionarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > -1)
+            {
+                habilitarCampos();
+
+                txtNome.Text = dtgridListFuncionarios.CurrentRow.Cells[1].Value.ToString();
+                txtCpf.Text = dtgridListFuncionarios.CurrentRow.Cells[2].Value.ToString();
+                txtTelefone.Text = dtgridListFuncionarios.CurrentRow.Cells[3].Value.ToString();
+                cbCargo.Text = dtgridListFuncionarios.CurrentRow.Cells[4].Value.ToString();
+                txtEndereco.Text = dtgridListFuncionarios.CurrentRow.Cells[6].Value.ToString();
+
+            }
+        }
+        ````
+    - Colocar foco campo nome evento click `btnNovo` FrmFuncionario
+        ````cs
+        txtNome.Focus();
+        ````
+    - Configurar ordem dos campos para seleção/edição propridade `TabIndex`
+ 
+
+    </p>
+
+    </details> 
+
+    ---
+
+
+
 ## Meta
 ><span style="color:383E42"><b>Cristiano Mendonça Gueivara</b> </span>
 >
