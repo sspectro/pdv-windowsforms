@@ -155,6 +155,25 @@ namespace pdv_windowsforms.cadastro
             dataAdapter.Fill(dataTable);
             dtgridListFuncionarios.DataSource = dataTable;
             con.fecharConexao();
+
+            formatarGD();
+        }
+
+        private void formatarGD()
+        {
+            dtgridListFuncionarios.Columns[0].HeaderText = "ID";
+            dtgridListFuncionarios.Columns[1].HeaderText = "Nome";
+            dtgridListFuncionarios.Columns[2].HeaderText = "CPF";
+            dtgridListFuncionarios.Columns[3].HeaderText = "Telefone";
+            dtgridListFuncionarios.Columns[4].HeaderText = "Cargo";
+            dtgridListFuncionarios.Columns[5].HeaderText = "Data";
+            dtgridListFuncionarios.Columns[6].HeaderText = "Endereço";
+            dtgridListFuncionarios.Columns[7].HeaderText = "Imagem";
+
+            dtgridListFuncionarios.Columns[0].Width = 50;
+            dtgridListFuncionarios.Columns[6].Width = 50;
+            dtgridListFuncionarios.Columns[0].Visible = false;
+            dtgridListFuncionarios.Columns[7].Visible = false;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
