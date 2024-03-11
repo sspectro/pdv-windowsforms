@@ -10,10 +10,14 @@ namespace pdv_windowsforms.cadastro
     public partial class FrmFuncionario : Form
     {
         Conexao con = new Conexao();
-        String sql;
+        string sql;
         MySqlCommand cmd;
 
-        String foto;
+        string foto;
+        string alterouImagem = "não";
+
+        string id = "";
+        string cpfAntigo = "";
 
         public FrmFuncionario()
         {
@@ -23,6 +27,7 @@ namespace pdv_windowsforms.cadastro
         {
             limparFoto();
             listar();
+            alterouImagem = "não";
 
         }
 
@@ -83,7 +88,7 @@ namespace pdv_windowsforms.cadastro
             {
                 foto = dialog.FileName.ToString();//pegando caminho da imagem
                 pictboxFoto.ImageLocation = foto; //Jogando caminho da imgem para comonente img para exibir no form
-                //alterouImagem = "sim"; //para uso editar alterando imagem
+                alterouImagem = "sim"; //para uso editar alterando imagem
             }
         }
 
@@ -181,8 +186,86 @@ namespace pdv_windowsforms.cadastro
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if(txtNome.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Preencha o campo nome.", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNome.Text = "";
+                txtNome.Focus();
+                return;
+            }
+            if(txtCpf.Text == "   ,   ,   -" || txtCpf.Text.Length < 14)
+            {
+                MessageBox.Show("Preencha o campo CPF.", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCpf.Focus();
+                return;
+            }
+
+            //Botão Editar
+            if(alterouImagem == "sim")
+            {
+                con.abrirConexao();
+                sql = "update funcionarios set nome = @nome, cpf = @cpf, telefone = @telefone, cargo = @cargo, endereco = @endereco, foto = @foto where id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                cmd.Parameters.AddWithValue("@cpf", txtCpf.Text);
+                cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                cmd.Parameters.AddWithValue("@cargo", cbCargo.Text);
+                cmd.Parameters.AddWithValue("@endereco", txtEndereco.Text);
+                cmd.Parameters.AddWithValue("@foto", img());//img() método criado para tratar imagem para o database
+            }else if(alterouImagem == "não")
+            {
+                con.abrirConexao();
+                sql = "update funcionarios set nome = @nome, cpf = @cpf, telefone = @telefone, cargo = @cargo, endereco = @endereco where id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                cmd.Parameters.AddWithValue("@cpf", txtCpf.Text);
+                cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                cmd.Parameters.AddWithValue("@cargo", cbCargo.Text);
+                cmd.Parameters.AddWithValue("@endereco", txtEndereco.Text);
+
+            }
+
+            //Verifica se CPF já existe
+            if(txtCpf.Text != cpfAntigo)
+            {
+                MySqlCommand cmdVerificar;
+                cmdVerificar = new MySqlCommand("Select * from funcionarios where cpf = @cpf", con.con);
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.SelectCommand = cmdVerificar;
+                cmdVerificar.Parameters.AddWithValue("@cpf",txtCpf.Text);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if(dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("CPF já registrado", "Cadastro de Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txtCpf.Text = "";
+                    txtCpf.Focus();
+                    return;
+                }
+
+            }
+
+            cmd.ExecuteNonQuery();
+            con.fecharConexao();
+            listar();
+
+            MessageBox.Show("Registro Editado com sucesso!", "Cadastro de Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnNovo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            desabilitarCampos();
+            limparCampos();
+            limparFoto();
+            alterouImagem = "não";
 
         }
+
+        
+                                                            
 
         private void dtgridListFuncionarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -194,8 +277,10 @@ namespace pdv_windowsforms.cadastro
                 btnSalvar.Enabled = false;
                 btnNovo.Enabled = false;
 
+                id = dtgridListFuncionarios.CurrentRow.Cells[0].Value.ToString();
                 txtNome.Text = dtgridListFuncionarios.CurrentRow.Cells[1].Value.ToString();
                 txtCpf.Text = dtgridListFuncionarios.CurrentRow.Cells[2].Value.ToString();
+                cpfAntigo = dtgridListFuncionarios.CurrentRow.Cells[2].Value.ToString();
                 txtTelefone.Text = dtgridListFuncionarios.CurrentRow.Cells[3].Value.ToString();
                 cbCargo.Text = dtgridListFuncionarios.CurrentRow.Cells[4].Value.ToString();
                 txtEndereco.Text = dtgridListFuncionarios.CurrentRow.Cells[6].Value.ToString();

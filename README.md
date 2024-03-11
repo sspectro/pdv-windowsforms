@@ -16,6 +16,7 @@
 - [canva.com criação de artes](https://www.canva.com/)
 - [xampp](https://www.apachefriends.org/pt_br/download.html)
 - [Nuget package MySql.Data](https://www.nuget.org/packages/MySql.Data/8.3.0?_src=template)
+- [Erro MySql incluir imagem] `MySql.Data.MySqlClient.MySqlException: 'Packets larger than max_allowed_packet are not allowed.`
 
 
 
@@ -607,12 +608,100 @@
     ---
 
 
-10. <span style="color:383E42"><b>-----</b></span>
+10. <span style="color:383E42"><b>Criação Código Botão Editar FrmFuncionario</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
+    - Erro MySql incluir imagem `MySql.Data.MySqlClient.MySqlException: 'Packets larger than max_allowed_packet are not allowed.`
+        Solução [Altere o arquivo my.ini - max_allowed_packet=500M](https://stackoverflow.com/questions/8062496/how-to-change-max-allowed-packet-size)
     
+    - Criação variáveis `id` e `cpfAntigo`
+        ````cs
+        String id = "";
+        String cpfAntigo = "";
+        ````
+    - Criar evento click do botão `Editar`
+        ````cs
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if(txtNome.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Preencha o campo nome.", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNome.Text = "";
+                txtNome.Focus();
+                return;
+            }
+            if(txtCpf.Text == "   ,   ,   -" || txtCpf.Text.Length < 14)
+            {
+                MessageBox.Show("Preencha o campo CPF.", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCpf.Focus();
+                return;
+            }
 
+            //Botão Editar
+            if(alterouImagem == "sim")
+            {
+                con.abrirConexao();
+                sql = "update funcionarios set nome = @nome, cpf = @cpf, telefone = @telefone, cargo = @cargo, endereco = @endereco, foto = @foto where id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                cmd.Parameters.AddWithValue("@cpf", txtCpf.Text);
+                cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                cmd.Parameters.AddWithValue("@cargo", cbCargo.Text);
+                cmd.Parameters.AddWithValue("@endereco", txtEndereco.Text);
+                cmd.Parameters.AddWithValue("@foto", img());//img() método criado para tratar imagem para o database
+            }else if(alterouImagem == "não")
+            {
+                con.abrirConexao();
+                sql = "update funcionarios set nome = @nome, cpf = @cpf, telefone = @telefone, cargo = @cargo, endereco = @endereco where id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                cmd.Parameters.AddWithValue("@cpf", txtCpf.Text);
+                cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                cmd.Parameters.AddWithValue("@cargo", cbCargo.Text);
+                cmd.Parameters.AddWithValue("@endereco", txtEndereco.Text);
+
+            }
+
+            //Verifica se CPF já existe
+            if(txtCpf.Text != cpfAntigo)
+            {
+                MySqlCommand cmdVerificar;
+                cmdVerificar = new MySqlCommand("Select * from funcionarios where cpf = @cpf", con.con);
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.SelectCommand = cmdVerificar;
+                cmdVerificar.Parameters.AddWithValue("@cpf",txtCpf.Text);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if(dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("CPF já registrado", "Cadastro de Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txtCpf.Text = "";
+                    txtCpf.Focus();
+                    return;
+                }
+
+            }
+
+            cmd.ExecuteNonQuery();
+            con.fecharConexao();
+            listar();
+
+            MessageBox.Show("Registro Editado com sucesso!", "Cadastro de Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnNovo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            desabilitarCampos();
+            limparCampos();
+            limparFoto();
+            alterouImagem = "não";
+
+        }
+        ````
 
     </p>
 
