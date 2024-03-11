@@ -317,5 +317,31 @@ namespace pdv_windowsforms.cadastro
             limparCampos();
 
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Deseja realmente Excluir!", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if (res == DialogResult.Yes)
+            {
+
+                con.abrirConexao();
+                sql = "delete from funcionarios where id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                con.fecharConexao();
+                listar();
+                MessageBox.Show("Registro Exluído com sucesso!", "Cadastro de Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnNovo.Enabled=true;
+                btnEditar.Enabled=false;
+                btnExcluir.Enabled=false;
+                btnSalvar.Enabled=false;
+                desabilitarCampos();
+                limparCampos();
+                limparFoto();
+
+            }
+        }
     }
 }

@@ -608,7 +608,7 @@
     ---
 
 
-10. <span style="color:383E42"><b>Criação Código Botão Editar FrmFuncionario</b></span>
+10. <span style="color:383E42"><b>Criação evento click Botão Editar e Excluir FrmFuncionario</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
@@ -700,6 +700,34 @@
             limparFoto();
             alterouImagem = "não";
 
+        }
+        ````
+    - Criação do evento click do botão `Excluir`
+        ````cs
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Deseja realmente Excluir!", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if (res == DialogResult.Yes)
+            {
+
+                con.abrirConexao();
+                sql = "delete from funcionarios where id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                con.fecharConexao();
+                listar();
+                MessageBox.Show("Registro Exluído com sucesso!", "Cadastro de Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnNovo.Enabled=true;
+                btnEditar.Enabled=false;
+                btnExcluir.Enabled=false;
+                btnSalvar.Enabled=false;
+                desabilitarCampos();
+                limparCampos();
+                limparFoto();
+
+            }
         }
         ````
 
