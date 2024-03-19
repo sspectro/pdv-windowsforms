@@ -28,6 +28,7 @@ namespace pdv_windowsforms.cadastro
             limparFoto();
             listar();
             alterouImagem = "não";
+            listarCargos();
 
         }
 
@@ -315,6 +316,23 @@ namespace pdv_windowsforms.cadastro
 
             desabilitarCampos();
             limparCampos();
+
+        }
+
+        private void listarCargos()
+        {
+            con.abrirConexao();
+            sql = "SELECT * FROM cargos ORDER BY cargo ASC";
+            cmd = new MySqlCommand(sql, con.con);
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cbCargo.DataSource = dt;
+            //cbCargo.ValueMember = "id";
+            //Carrega pelo nome 
+            cbCargo.DisplayMember = "cargo";
+            con.fecharConexao();
 
         }
 

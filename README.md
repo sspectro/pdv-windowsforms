@@ -738,6 +738,47 @@
     ---
 
 
+10. <span style="color:383E42"><b>ComboBox `cbCargo`: Criação Tabela `cargos`, Função `listarCargos`</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    - Criação Tabela `cargos` e inclusão de dados
+        - id - int - autoincrement
+        - cargo- varchar
+        ````sql
+        INSERT INTO `cargos` (`id`, `nome`) VALUES (NULL, 'Motorista');
+        ````
+
+    - Criar Função `listarCargos`
+        ````cs
+        private void listarCargos()
+        {
+            con.abrirConexao();
+            sql = "SELECT * FROM cargos ORDER BY cargo ASC";
+            cmd = new MySqlCommand(sql, con.con);
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cbCargo.DataSource = dt;
+            //cbCargo.ValueMember = "id";
+            //Carrega pelo nome 
+            cbCargo.DisplayMember = "cargo";
+            con.fecharConexao();
+
+        }
+        ````
+    
+    - 
+
+
+
+    </p>
+
+    </details> 
+
+    ---
+
 
 ## Meta
 ><span style="color:383E42"><b>Cristiano Mendonça Gueivara</b> </span>
