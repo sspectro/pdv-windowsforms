@@ -27,9 +27,9 @@ namespace pdv_windowsforms.cadastro
         {
             limparFoto();
             listar();
-            alterouImagem = "não";
             listarCargos();
-
+            alterouImagem = "não";
+            cbCargo.Text = "Selecione o Cargo";
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)

@@ -126,6 +126,7 @@
             this.dtgridListFuncionarios.Location = new System.Drawing.Point(24, 178);
             this.dtgridListFuncionarios.Name = "dtgridListFuncionarios";
             this.dtgridListFuncionarios.ReadOnly = true;
+            this.dtgridListFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgridListFuncionarios.Size = new System.Drawing.Size(785, 295);
             this.dtgridListFuncionarios.TabIndex = 12;
             this.dtgridListFuncionarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgridListFuncionarios_CellDoubleClick);

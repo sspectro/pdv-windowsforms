@@ -608,7 +608,7 @@
     ---
 
 
-10. <span style="color:383E42"><b>Criação evento click Botão Editar e Excluir FrmFuncionario</b></span>
+11. <span style="color:383E42"><b>Criação evento click Botão Editar e Excluir FrmFuncionario</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
@@ -738,7 +738,7 @@
     ---
 
 
-10. <span style="color:383E42"><b>ComboBox `cbCargo`: Criação Tabela `cargos`, Função `listarCargos`</b></span>
+12. <span style="color:383E42"><b>ComboBox `cbCargo`: Criação Tabela `cargos`, Função `listarCargos`</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
@@ -768,9 +768,131 @@
 
         }
         ````
-    
-    - 
 
+
+    </p>
+
+    </details> 
+
+    ---
+
+12. <span style="color:383E42"><b>Formatar Grid e Criar Form Cargo</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    - Configurar texto inicial no cbCargo no evento Load FrmFuncionario
+        ````cs
+        cbCargo.Text = "Selecione o Cargo";
+        ````
+    - Configurar propriedade SelectionMode do datagrid como `FullRowSelect`
+        Com isso será selecionada toda linha ao clicar em uma célula na tabela
+
+    - Criar novo formulário FrmCargo - Copiar campos e botões do `FrmFuncionario` e deixar somente os campos abaixo
+        Campos:
+        - Label Cargo: lblCargo
+        - TextBox: txtCargo
+        - DataGrid: dtgridListCargos
+        Botões:
+        - Novo: btnNovo
+        - Salvar: btnSalvar
+        - Cancelar: btnCancelar
+        - Editar: btnEditar
+        - Excluir: btnExcluir
+
+    
+    - Incluir variáveis no FrmCargo
+        ````cs
+        Conexao con = new Conexao();
+        string sql;
+        MySqlCommand cmd;
+
+        string id = "";
+
+        ````
+
+    - Incluir função formatarGD()
+        ````cs
+        private void formatarGD()
+        {
+            dtgridListCargos.Columns[0].HeaderText = "ID";
+            dtgridListCargos.Columns[1].HeaderText = "Cargo";
+
+            dtgridListCargos.Columns[0].Width = 50;
+            dtgridListCargos.Columns[1].Width = 50;
+            dtgridListCargos.Columns[0].Visible = false;
+        }
+        ````
+    - Criar evento click botão salvar FrmCargo
+        ````cs
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            //Tratar dados
+            if (txtCargo.Text.ToString().Trim() == "" || txtCargo.Text.Length < 2)
+            {
+                MessageBox.Show("Preencha o campo Cargo com pelo menos 2 letras", "Cadastro Cargos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCargo.Text = "";
+                txtCargo.Focus();
+                return;
+            }
+
+            con.abrirConexao();
+            sql = "insert into cargos(cargo) values(@cargo)";
+            cmd = new MySqlCommand(sql, con.con);
+            cmd.Parameters.AddWithValue("@cargo", txtCargo.Text);
+
+
+            cmd.ExecuteNonQuery();
+            con.fecharConexao();
+
+
+
+            listar();
+
+            MessageBox.Show("Registro Salvao com Sucesso!", "Cadastro Cargos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+
+        }
+        ````
+    - Criar função listar() e incluir chamada no evento Load do FrmCargo
+        ````cs
+        private void listar()
+        {
+            con.abrirConexao();
+            sql = "select * from cargos order by cargo asc";
+            cmd = new MySqlCommand(sql, con.con);
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
+            dataAdapter.SelectCommand = cmd;
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            dtgridListCargos.DataSource = dataTable;
+            con.fecharConexao();
+
+            formatarGD();
+        }
+        ````
+    - Incluir Cadastro cargos no menu Form principal e criar evento click
+        ````cs
+        private void MenuCadCargos_Click(object sender, EventArgs e)
+        {
+            cadastro.FrmCargo frmCargo = new cadastro.FrmCargo();
+            frmCargo.ShowDialog();
+        }
+        ````
+    - Incluir função formatarGD()
+        ````cs
+        private void formatarGD()
+        {
+            dtgridListCargos.Columns[0].HeaderText = "ID";
+            dtgridListCargos.Columns[1].HeaderText = "Cargo";
+
+            dtgridListCargos.Columns[0].Width = 50;
+            dtgridListCargos.Columns[1].Width = 50;
+            dtgridListCargos.Columns[0].Visible = false;
+        }
+        ````
 
 
     </p>

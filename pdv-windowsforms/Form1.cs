@@ -28,5 +28,16 @@ namespace pdv_windowsforms
 
             frm.ShowDialog();
         }
+
+        private void MenuCadastros_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuCadCargos_Click(object sender, EventArgs e)
+        {
+            cadastro.FrmCargo frmCargo = new cadastro.FrmCargo();
+            frmCargo.ShowDialog();
+        }
     }
 }

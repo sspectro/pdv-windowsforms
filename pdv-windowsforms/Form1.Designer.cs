@@ -54,6 +54,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.img01Carrinho = new System.Windows.Forms.PictureBox();
+            this.cargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -81,34 +82,36 @@
             this.MenuCadFuncionario,
             this.MenuCadClientes,
             this.MenuCadUsuarios,
-            this.MenuCadFornecedor});
+            this.MenuCadFornecedor,
+            this.cargosToolStripMenuItem});
             this.MenuCadastros.Name = "MenuCadastros";
             this.MenuCadastros.Size = new System.Drawing.Size(71, 20);
             this.MenuCadastros.Text = "Cadastros";
+            this.MenuCadastros.Click += new System.EventHandler(this.MenuCadastros_Click);
             // 
             // MenuCadFuncionario
             // 
             this.MenuCadFuncionario.Name = "MenuCadFuncionario";
-            this.MenuCadFuncionario.Size = new System.Drawing.Size(142, 22);
+            this.MenuCadFuncionario.Size = new System.Drawing.Size(180, 22);
             this.MenuCadFuncionario.Text = "Funcionários";
             this.MenuCadFuncionario.Click += new System.EventHandler(this.MenuCadFuncionario_Click);
             // 
             // MenuCadClientes
             // 
             this.MenuCadClientes.Name = "MenuCadClientes";
-            this.MenuCadClientes.Size = new System.Drawing.Size(142, 22);
+            this.MenuCadClientes.Size = new System.Drawing.Size(180, 22);
             this.MenuCadClientes.Text = "Clientes";
             // 
             // MenuCadUsuarios
             // 
             this.MenuCadUsuarios.Name = "MenuCadUsuarios";
-            this.MenuCadUsuarios.Size = new System.Drawing.Size(142, 22);
+            this.MenuCadUsuarios.Size = new System.Drawing.Size(180, 22);
             this.MenuCadUsuarios.Text = "Usuários";
             // 
             // MenuCadFornecedor
             // 
             this.MenuCadFornecedor.Name = "MenuCadFornecedor";
-            this.MenuCadFornecedor.Size = new System.Drawing.Size(142, 22);
+            this.MenuCadFornecedor.Size = new System.Drawing.Size(180, 22);
             this.MenuCadFornecedor.Text = "Fornecedor";
             // 
             // MenuProdutos
@@ -256,6 +259,13 @@
             this.img01Carrinho.TabIndex = 1;
             this.img01Carrinho.TabStop = false;
             // 
+            // cargosToolStripMenuItem
+            // 
+            this.cargosToolStripMenuItem.Name = "cargosToolStripMenuItem";
+            this.cargosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cargosToolStripMenuItem.Text = "Cargos";
+            this.cargosToolStripMenuItem.Click += new System.EventHandler(this.MenuCadCargos_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,6 +318,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuRelMovimentos;
         private System.Windows.Forms.ToolStripMenuItem MenuRelEntradasSaídas;
         private System.Windows.Forms.ToolStripMenuItem MenuRelDespesas;
+        private System.Windows.Forms.ToolStripMenuItem cargosToolStripMenuItem;
     }
 }
 
