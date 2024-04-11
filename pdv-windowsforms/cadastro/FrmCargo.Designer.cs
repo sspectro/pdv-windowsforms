@@ -67,6 +67,7 @@
             this.btnEditar.TabIndex = 35;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnSalvar
             // 
@@ -98,6 +99,7 @@
             this.dtgridListCargos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgridListCargos.Size = new System.Drawing.Size(785, 295);
             this.dtgridListCargos.TabIndex = 32;
+            this.dtgridListCargos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgridListCargos_CellDoubleClick);
             // 
             // txtCargo
             // 

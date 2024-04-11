@@ -776,7 +776,7 @@
 
     ---
 
-12. <span style="color:383E42"><b>Criar Form Cargo, Formatar Grid e Criar Código do Botão Salvar</b></span>
+13. <span style="color:383E42"><b>Criar Form Cargo, Formatar Grid e Criar Código do Botão Salvar</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
@@ -902,7 +902,7 @@
     ---
 
 
-12. <span style="color:383E42"><b>Incluir as Funções/Eventos dos Botões do FrmCargo</b></span>
+14. <span style="color:383E42"><b>Incluir as Funções/Eventos dos Botões do FrmCargo</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
  
@@ -914,6 +914,75 @@
             btnExcluir.Enabled = false;
             btnSalvar.Enabled = false;
             btnNovo.Enabled = true;
+        }
+        ````
+    - Código evento click `btnEditar`
+        ````cs
+                private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (txtCargo.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Preencha o campo Cargo.", "Cadastro Cargos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCargo.Text = "";
+                txtCargo.Focus();
+                return;
+            }
+
+            con.abrirConexao();
+
+            //Verifica se Cargo já existe
+            if (txtCargo.Text != cargoAntigo)
+            {
+                MySqlCommand cmdVerificar;
+                cmdVerificar = new MySqlCommand("Select * from cargos where cargo = @cargo", con.con);
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.SelectCommand = cmdVerificar;
+                cmdVerificar.Parameters.AddWithValue("@cargo", txtCargo.Text);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("Cargo já registrado", "Cadastro de Cargos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txtCargo.Text = "";
+                    txtCargo.Focus();
+                    return;
+                }
+
+            }
+
+            //Botão Editar
+            sql = "update cargos set cargo = @cargo where id = @id";
+            cmd = new MySqlCommand(sql, con.con);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@cargo", txtCargo.Text);
+
+            cmd.ExecuteNonQuery();
+            con.fecharConexao();
+            listar();
+
+            MessageBox.Show("Registro Editado com sucesso!", "Cadastro de Cargos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnNovo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            txtCargo.Text = "";
+        }
+        ````
+    - Código evento duplo click t
+        ````cs
+                private void dtgridListCargos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
+                btnSalvar.Enabled = false;
+                btnNovo.Enabled = false;
+
+                id = dtgridListCargos.CurrentRow.Cells[0].Value.ToString();
+                txtCargo.Text = dtgridListCargos.CurrentRow.Cells[1].Value.ToString();
+            }
         }
         ````
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace pdv_windowsforms.cadastro
         MySqlCommand cmd;
 
         string id = "";
+        string cargoAntigo = "";
+
         public FrmCargo()
         {
             InitializeComponent();
@@ -95,6 +98,71 @@ namespace pdv_windowsforms.cadastro
             btnExcluir.Enabled = false;
             btnSalvar.Enabled = false;
             btnNovo.Enabled = true;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (txtCargo.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Preencha o campo Cargo.", "Cadastro Cargos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCargo.Text = "";
+                txtCargo.Focus();
+                return;
+            }
+
+            con.abrirConexao();
+
+            //Verifica se Cargo já existe
+            if (txtCargo.Text != cargoAntigo)
+            {
+                MySqlCommand cmdVerificar;
+                cmdVerificar = new MySqlCommand("Select * from cargos where cargo = @cargo", con.con);
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.SelectCommand = cmdVerificar;
+                cmdVerificar.Parameters.AddWithValue("@cargo", txtCargo.Text);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("Cargo já registrado", "Cadastro de Cargos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txtCargo.Text = "";
+                    txtCargo.Focus();
+                    return;
+                }
+
+            }
+
+            //Botão Editar
+            sql = "update cargos set cargo = @cargo where id = @id";
+            cmd = new MySqlCommand(sql, con.con);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@cargo", txtCargo.Text);
+
+            cmd.ExecuteNonQuery();
+            con.fecharConexao();
+            listar();
+
+            MessageBox.Show("Registro Editado com sucesso!", "Cadastro de Cargos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnNovo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            txtCargo.Text = "";
+        }
+
+        private void dtgridListCargos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
+                btnSalvar.Enabled = false;
+                btnNovo.Enabled = false;
+
+                id = dtgridListCargos.CurrentRow.Cells[0].Value.ToString();
+                txtCargo.Text = dtgridListCargos.CurrentRow.Cells[1].Value.ToString();
+            }
         }
     }
 }
