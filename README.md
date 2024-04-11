@@ -776,7 +776,7 @@
 
     ---
 
-12. <span style="color:383E42"><b>Formatar Grid e Criar Form Cargo</b></span>
+12. <span style="color:383E42"><b>Criar Form Cargo, Formatar Grid e Criar Código do Botão Salvar</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
 
@@ -893,6 +893,30 @@
             dtgridListCargos.Columns[0].Visible = false;
         }
         ````
+
+
+    </p>
+
+    </details> 
+
+    ---
+
+
+12. <span style="color:383E42"><b>Incluir as Funções/Eventos dos Botões do FrmCargo</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+ 
+    - Criar código do evento click do btnCancelar 
+        ````cs
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            btnNovo.Enabled = true;
+        }
+        ````
+
 
 
     </p>

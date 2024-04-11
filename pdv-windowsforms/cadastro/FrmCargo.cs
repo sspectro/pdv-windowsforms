@@ -89,5 +89,12 @@ namespace pdv_windowsforms.cadastro
             formatarGD();
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            btnNovo.Enabled = true;
+        }
     }
 }
