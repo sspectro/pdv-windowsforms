@@ -32,7 +32,7 @@ namespace pdv_windowsforms.cadastro
             dtgridListCargos.Columns[1].HeaderText = "Cargo";
 
             dtgridListCargos.Columns[0].Width = 50;
-            dtgridListCargos.Columns[1].Width = 50;
+            dtgridListCargos.Columns[1].Width = 100;
             dtgridListCargos.Columns[0].Visible = false;
         }
 
@@ -43,7 +43,26 @@ namespace pdv_windowsforms.cadastro
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            var res = MessageBox.Show("Deseja realmente Excluir o cargo!", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (res == DialogResult.Yes)
+            {
+
+                con.abrirConexao();
+                sql = "delete from cargos where id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                con.fecharConexao();
+                listar();
+                MessageBox.Show("Cargo Exluído com sucesso!", "Cadastro de Cargos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnNovo.Enabled = true;
+                btnEditar.Enabled = false;
+                btnExcluir.Enabled = false;
+                btnSalvar.Enabled = false;
+                txtCargo.Text = "";
+
+            }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -80,7 +99,7 @@ namespace pdv_windowsforms.cadastro
         private void listar()
         {
             con.abrirConexao();
-            sql = "select * from cargos order by cargo asc";
+            sql = "select id, cargo from cargos order by cargo asc";
             cmd = new MySqlCommand(sql, con.con);
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
             dataAdapter.SelectCommand = cmd;

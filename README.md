@@ -969,7 +969,7 @@
             txtCargo.Text = "";
         }
         ````
-    - Código evento duplo click t
+    - Código evento duplo click `dtgridListCargos`
         ````cs
                 private void dtgridListCargos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -985,9 +985,50 @@
             }
         }
         ````
+    - Código evento click `btnExcluir`
+        ````cs
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Deseja realmente Excluir o cargo!", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (res == DialogResult.Yes)
+            {
+
+                con.abrirConexao();
+                sql = "delete from cargos where id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                con.fecharConexao();
+                listar();
+                MessageBox.Show("Cargo Exluído com sucesso!", "Cadastro de Cargos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnNovo.Enabled = true;
+                btnEditar.Enabled = false;
+                btnExcluir.Enabled = false;
+                btnSalvar.Enabled = false;
+                txtCargo.Text = "";
+
+            }
+        }
+        ````
 
 
 
+    </p>
+
+    </details> 
+
+    ---
+
+
+15. <span style="color:383E42"><b>----------</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+    
+    - 
+
+
+ 
     </p>
 
     </details> 
