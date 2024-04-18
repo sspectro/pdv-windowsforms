@@ -1011,6 +1011,14 @@
             }
         }
         ````
+    - Criação campo data tabela `cargos`
+        `Tipo Date - Não nulo`
+    - Inclusão do campo `data` no evento click `btnSalvar`
+        ````cs
+        //...
+        sql = "insert into cargos(cargo, data) values(@cargo, curDate())";
+        //...
+        ````
 
 
 

@@ -77,7 +77,7 @@ namespace pdv_windowsforms.cadastro
             }
 
             con.abrirConexao();
-            sql = "insert into cargos(cargo) values(@cargo)";
+            sql = "insert into cargos(cargo, data) values(@cargo, curDate())";
             cmd = new MySqlCommand(sql, con.con);
             cmd.Parameters.AddWithValue("@cargo", txtCargo.Text);
 
