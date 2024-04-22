@@ -87,6 +87,7 @@
             this.btnNovo.TabIndex = 33;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // dtgridListCargos
             // 

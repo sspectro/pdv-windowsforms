@@ -39,6 +39,11 @@ namespace pdv_windowsforms.cadastro
         private void FrmCargo_Load(object sender, EventArgs e)
         {
             listar();
+            btnNovo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            txtCargo.Enabled = false;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -178,10 +183,17 @@ namespace pdv_windowsforms.cadastro
                 btnExcluir.Enabled = true;
                 btnSalvar.Enabled = false;
                 btnNovo.Enabled = false;
+                txtCargo.Enabled = true;
 
                 id = dtgridListCargos.CurrentRow.Cells[0].Value.ToString();
                 txtCargo.Text = dtgridListCargos.CurrentRow.Cells[1].Value.ToString();
             }
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            txtCargo.Enabled = true;
+            btnSalvar.Enabled = true;
         }
     }
 }

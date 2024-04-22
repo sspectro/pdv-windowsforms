@@ -1019,6 +1019,22 @@
         sql = "insert into cargos(cargo, data) values(@cargo, curDate())";
         //...
         ````
+    - Incluir configuração inicial botões e campo texto evento Load FrmCadastro
+        ````cs
+        //...
+            btnNovo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            txtCargo.Enabled = false;
+        //...
+        ````
+    - Habilitar btnSalvar click do botão `Novo`
+        ````cs
+        //...
+        btnSalvar.Enabled = true;
+        //...
+        ````
 
 
 
