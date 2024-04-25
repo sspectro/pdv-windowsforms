@@ -48,7 +48,7 @@ namespace pdv_windowsforms.cadastro
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            var res = MessageBox.Show("Deseja realmente Excluir o cargo!", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var res = MessageBox.Show("Deseja realmente Excluir o cargo " +cargoAntigo+ " ?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (res == DialogResult.Yes)
             {
@@ -94,7 +94,7 @@ namespace pdv_windowsforms.cadastro
 
             listar();
 
-            MessageBox.Show("Registro Salvao com Sucesso!", "Cadastro Cargos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Registro Salvo com Sucesso!", "Cadastro Cargos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnNovo.Enabled = true;
             btnSalvar.Enabled = false;
             btnEditar.Enabled = false;
@@ -149,7 +149,7 @@ namespace pdv_windowsforms.cadastro
 
                 if (dt.Rows.Count > 0)
                 {
-                    MessageBox.Show("Cargo já registrado", "Cadastro de Cargos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show("Cargo "+txtCargo.Text+ " já registrado", "Cadastro de Cargos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     txtCargo.Text = "";
                     txtCargo.Focus();
                     return;
@@ -167,7 +167,7 @@ namespace pdv_windowsforms.cadastro
             con.fecharConexao();
             listar();
 
-            MessageBox.Show("Registro Editado com sucesso!", "Cadastro de Cargos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Registro do " + txtCargo.Text + " Editado com sucesso!", "Cadastro de Cargos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnNovo.Enabled = true;
             btnEditar.Enabled = false;
             btnExcluir.Enabled = false;
@@ -187,6 +187,7 @@ namespace pdv_windowsforms.cadastro
 
                 id = dtgridListCargos.CurrentRow.Cells[0].Value.ToString();
                 txtCargo.Text = dtgridListCargos.CurrentRow.Cells[1].Value.ToString();
+                cargoAntigo = dtgridListCargos.CurrentRow.Cells[1].Value.ToString();//Não necessário, pois este valor já está no txtCargo.Text
             }
         }
 

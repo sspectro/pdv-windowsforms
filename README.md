@@ -1036,6 +1036,15 @@
         //...
         ````
 
+    - Edição das mensagens de alerta ao editar e excluir cargo
+
+    - Inclusão do cargo clicado na grid a variável `cargoAntigo`
+        ````cs
+        //...
+        cargoAntigo = dtgridListCargos.CurrentRow.Cells[1].Value.ToString();//Não necessário, pois este valor já está no txtCargo.Text
+        /...
+        ````
+
 
 
     </p>
@@ -1045,7 +1054,7 @@
     ---
 
 
-15. <span style="color:383E42"><b>----------</b></span>
+15. <span style="color:383E42"><b>Criando Form Cliente</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
     
