@@ -1054,12 +1054,21 @@
     ---
 
 
-15. <span style="color:383E42"><b>Criando Form Cliente</b></span>
+15. <span style="color:383E42"><b>Criando Form Cliente - Importando Database de Script SQL</b></span>
     <details><summary><span style="color:Chocolate">Detalhes</span></summary>
     <p>
     
-    - 
+    - Importando datase do script:
+        Excluir tabelas do banco de dados `pdv` ou excluir o banco e recriar
+        Estando no banco de dados via phpMyAdmin menu Importar
+        Escolher arquivo baixado do curso
+        Opções:
+        - Conjunto de caracteres do arquivo: utf-8
+        - Formato: SQL
+        - Modo de compatibilidade SQL: NONE
 
+    - Criar formulário Clientes (FrmCliente):
+        `StartPosition - CenterScreen`
 
  
     </p>
