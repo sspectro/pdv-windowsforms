@@ -1069,7 +1069,7 @@
 
     - Criar formulário Clientes (FrmCliente):
         > `StartPosition - CenterScreen`
-        >><img src="readmeImages/projectImages/FrmClientes.png">
+        >><img src="readmeImages/projectImages/FrmCliente.png">
     
 
     - Criar variáveis do form
