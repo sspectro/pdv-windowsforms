@@ -1068,8 +1068,64 @@
         - Modo de compatibilidade SQL: NONE
 
     - Criar formulário Clientes (FrmCliente):
-        `StartPosition - CenterScreen`
+        > `StartPosition - CenterScreen`
+        >><img src="readmeImages/projectImages/FrmClientes.png">
+    
 
+    - Criar variáveis do form
+    - Criar o função `formatarGD`
+        Formata a datagridList
+        ````cs
+        private void formatarGD()
+        {
+            dtgridListClientes.Columns[0].HeaderText = "ID";
+            dtgridListClientes.Columns[1].HeaderText = "Código";
+            dtgridListClientes.Columns[2].HeaderText = "Nome";
+            dtgridListClientes.Columns[3].HeaderText = "CPF";
+            dtgridListClientes.Columns[4].HeaderText = "Em Aberto";
+            dtgridListClientes.Columns[5].HeaderText = "Telefone";
+            dtgridListClientes.Columns[6].HeaderText = "Email";
+            dtgridListClientes.Columns[7].HeaderText = "Desbloqueado";
+            dtgridListClientes.Columns[8].HeaderText = "Status";
+            dtgridListClientes.Columns[9].HeaderText = "Endereço";
+            dtgridListClientes.Columns[10].HeaderText = "Funcionário";
+            dtgridListClientes.Columns[11].HeaderText = "igm";
+            dtgridListClientes.Columns[12].HeaderText = "Data";
+            //dtgridListClientes.Columns[0].Width = 50;
+            dtgridListClientes.Columns[0].Visible = false;
+            dtgridListClientes.Columns[11].Visible = false;
+            dtgridListClientes.Columns[4].DefaultCellStyle.Format = "c2";
+
+
+        }
+        ````
+    - Criar função `listar`
+        Preenche o datagridList com dados da tabela de clientes
+        ````cs
+        private void listar()
+        {
+            con.abrirConexao();
+            sql = "select * from clientes order by nome asc";
+            cmd = new MySqlCommand(sql, con.con);
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            adapter.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dtgridListClientes.DataSource = dt;
+            con.fecharConexao();
+
+            formatarGD();
+        }
+        ````
+    - Criar função `buscarPNome`
+    - Criar função `buscarCpf`
+    - Criar função `habilitarCampos`
+    - Criar função `desabilitarCampos`
+    - Criar função `limparCampos`
+    - Criar função `ultimoIdCliente`
+    - Criar função `img`
+        Este método é padrão, serve para enviar um imagem para o banco de dados.
+    - Criar função `limparFoto`
  
     </p>
 

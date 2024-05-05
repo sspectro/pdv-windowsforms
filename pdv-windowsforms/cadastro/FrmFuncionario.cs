@@ -13,11 +13,19 @@ namespace pdv_windowsforms.cadastro
         string sql;
         MySqlCommand cmd;
 
+        string id;
+        string cpfAntigo = "";
         string foto;
         string alterouImagem = "não";
 
-        string id = "";
-        string cpfAntigo = "";
+        //Mensagem RADIOBUTTON ao adicionar ou editar
+        string radioButton = "";
+        //Ao SELECIONAR NA GRID mostra o radioButton
+        string desbloqueado, inadimplente;
+        bool emailAdress = false;
+
+        int codCliente, IdAnterior;
+
 
         public FrmFuncionario()
         {
