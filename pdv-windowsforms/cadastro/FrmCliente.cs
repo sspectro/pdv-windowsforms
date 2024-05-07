@@ -107,38 +107,38 @@ namespace pdv_windowsforms.cadastro
         //    formatarGD();
         //}
 
-        //private void habilitarCampos()
-        //{
-        //    txtNome.Enabled = true;
-        //    txtCpf.Enabled = true;
-        //    txtEndereco.Enabled = true;
-        //    txtTelefone.Enabled = true;
-        //    txtEmail.Enabled = true;
-        //    cblInadimplente.Enabled = true;
-        //    txtValorAberto.Enabled = true;
-        //    txtNome.Focus();
-        //}
+        private void habilitarCampos()
+        {
+            txtNome.Enabled = true;
+            txtCpf.Enabled = true;
+            txtEndereco.Enabled = true;
+            txtTelefone.Enabled = true;
+            txtEmail.Enabled = true;
+            cblInadimplente.Enabled = true;
+            txtValorAberto.Enabled = true;
+            txtNome.Focus();
+        }
 
-        //private void desabilitarCampos()
-        //{
-        //    txtNome.Enabled = false;
-        //    txtCpf.Enabled = false;
-        //    txtEndereco.Enabled = false;
-        //    txtTelefone.Enabled = false;
-        //    txtEmail.Enabled = false;
-        //    cblInadimplente.Enabled = false;
-        //    txtValorAberto.Enabled = false;
-        //}
+        private void desabilitarCampos()
+        {
+            txtNome.Enabled = false;
+            txtCpf.Enabled = false;
+            txtEndereco.Enabled = false;
+            txtTelefone.Enabled = false;
+            txtEmail.Enabled = false;
+            cblInadimplente.Enabled = false;
+            txtValorAberto.Enabled = false;
+        }
 
-        //private void limparCampos()
-        //{
-        //    txtNome.Text = "";
-        //    txtCpf.Text = "";
-        //    txtEndereco.Text = "";
-        //    txtTelefone.Text = "";
-        //    txtEmail.Text = "";
-        //    cblInadimplente.SelectedIndex = 0;
-        //}
+        private void limparCampos()
+        {
+            txtNome.Text = "";
+            txtCpf.Text = "";
+            txtEndereco.Text = "";
+            txtTelefone.Text = "";
+            txtEmail.Text = "";
+            cblInadimplente.SelectedIndex = 0;
+        }
 
         //private void ultimoIdCliente()
         //{

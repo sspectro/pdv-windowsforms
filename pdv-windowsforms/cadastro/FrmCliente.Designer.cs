@@ -30,7 +30,7 @@
         {
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
-            this.cbInadimplente = new System.Windows.Forms.ComboBox();
+            this.cblInadimplente = new System.Windows.Forms.ComboBox();
             this.txtEndereco = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblInadimplente = new System.Windows.Forms.Label();
@@ -81,13 +81,13 @@
             this.txtCpf.Size = new System.Drawing.Size(84, 20);
             this.txtCpf.TabIndex = 24;
             // 
-            // cbInadimplente
+            // cblInadimplente
             // 
-            this.cbInadimplente.FormattingEnabled = true;
-            this.cbInadimplente.Location = new System.Drawing.Point(613, 109);
-            this.cbInadimplente.Name = "cbInadimplente";
-            this.cbInadimplente.Size = new System.Drawing.Size(121, 21);
-            this.cbInadimplente.TabIndex = 26;
+            this.cblInadimplente.FormattingEnabled = true;
+            this.cblInadimplente.Location = new System.Drawing.Point(613, 109);
+            this.cblInadimplente.Name = "cblInadimplente";
+            this.cblInadimplente.Size = new System.Drawing.Size(121, 21);
+            this.cblInadimplente.TabIndex = 26;
             // 
             // txtEndereco
             // 
@@ -376,7 +376,7 @@
             this.Controls.Add(this.dtgridListClientes);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.txtCpf);
-            this.Controls.Add(this.cbInadimplente);
+            this.Controls.Add(this.cblInadimplente);
             this.Controls.Add(this.txtEndereco);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblInadimplente);
@@ -401,7 +401,7 @@
 
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.MaskedTextBox txtCpf;
-        private System.Windows.Forms.ComboBox cbInadimplente;
+        private System.Windows.Forms.ComboBox cblInadimplente;
         private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblInadimplente;

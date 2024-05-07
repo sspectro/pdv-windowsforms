@@ -1117,11 +1117,47 @@
             formatarGD();
         }
         ````
+    - Criar função `habilitarCampos`
+        ````cs
+        private void habilitarCampos()
+        {
+            txtNome.Enabled = true;
+            txtCpf.Enabled = true;
+            txtEndereco.Enabled = true;
+            txtTelefone.Enabled = true;
+            txtEmail.Enabled = true;
+            cblInadimplente.Enabled = true;
+            txtValorAberto.Enabled = true;
+            txtNome.Focus();
+        }
+        ````
+    - Criar função `desabilitarCampos`
+        ````cs
+        private void desabilitarCampos()
+        {
+            txtNome.Enabled = false;
+            txtCpf.Enabled = false;
+            txtEndereco.Enabled = false;
+            txtTelefone.Enabled = false;
+            txtEmail.Enabled = false;
+            cblInadimplente.Enabled = false;
+            txtValorAberto.Enabled = false;
+        }
+        ````
+    - Criar função `limparCampos`
+        ````cs
+        private void limparCampos()
+        {
+            txtNome.Text = "";
+            txtCpf.Text = "";
+            txtEndereco.Text = "";
+            txtTelefone.Text = "";
+            txtEmail.Text = "";
+            cblInadimplente.SelectedIndex = 0;
+        }
+        ````
     - Criar função `buscarPNome`
     - Criar função `buscarCpf`
-    - Criar função `habilitarCampos`
-    - Criar função `desabilitarCampos`
-    - Criar função `limparCampos`
     - Criar função `ultimoIdCliente`
     - Criar função `img`
         Este método é padrão, serve para enviar um imagem para o banco de dados.
