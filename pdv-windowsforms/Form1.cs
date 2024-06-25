@@ -65,5 +65,43 @@ namespace pdv_windowsforms
             return ColorTranslator.FromHtml(color);
         }
 
+        // Ativa/destca botão clicado
+        private void activateButton(object btnSender)
+        {
+            if (btnSender != null)
+            {
+                btnCloseChildForm.Visible = true;
+                if (currentButton != (Button)btnSender)
+                {
+                    deactivateButton();
+                    Color color = selectThemeColor();
+                    currentButton = (Button)btnSender;
+                    currentButton.BackColor = color;
+                    currentButton.ForeColor = Color.White;
+                    currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    panelTitleBar.BackColor = color;
+                    panelLogo.BackColor = ThemeColor.changeColorBrightness(color, -0.3);
+
+                    ThemeColor.primaryColor = color;
+                    ThemeColor.secondaryColor = ThemeColor.changeColorBrightness(color, -0.3);
+                    //btnCloseChildForm.Visible = true;
+                }
+            }
+        }
+
+        //Desativa botão selecionado
+        private void deactivateButton()
+        {
+            foreach (Control previousBtn in panelMenu.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(51, 51, 76);
+                    previousBtn.ForeColor = Color.Gainsboro;
+                    previousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                }
+            }
+        }
+
     }//
 }

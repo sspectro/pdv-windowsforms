@@ -1318,7 +1318,7 @@
         ````
     - Criar função `activateButton(object btnSender)` - Ativa/destca botão clicado:
         ````cs
-        // Ativa/destca botão clicado
+        // Ativa/destaca botão clicado
         private void activateButton(object btnSender)
         {
             if (btnSender != null)
@@ -1342,6 +1342,36 @@
             }
         }
         ````
+    - Criar função void deactivateButton(object btnSender) - Ativa/destaca botão clicado:
+        ````cs
+        //Desativa botão selecionado
+        private void deactivateButton()
+        {
+            foreach(Control previousBtn in panelMenu.Controls)
+            {
+                if(previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(51, 51, 76);
+                    previousBtn.ForeColor = Color.Gainsboro;
+                    previousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }
+            }
+        }
+        ````
+    - Adicionar label lblTitle ao painel panelTitleBar:
+        Anchor "None" - permite que ao expandir ou diminuir o form mantenha a posição do label
+        Font - Size:16
+        Text: HOME
+        ForeColor: ButtonHighlight
+        Anchor:None 
+    - Adicionar label lblLogo ao painel panelLogo:
+        Fonte: Size:14
+        Text: ZATEC APP
+        ForeColor: ButtonHighlight
+    - Adicionar botão ao btnCloseChildForm panelTitleBar:
+        Text:
+        FlatAppearance - BorderSize:0
+        Image: uma imagem de x
     
 
     </p>
