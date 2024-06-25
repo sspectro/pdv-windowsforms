@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace pdv_windowsforms
 {
-    public partial class FrmPrincipal : Form
+    public partial class Form1 : Form
     {
         //Fields
         private Button currentButton;
@@ -19,9 +14,10 @@ namespace pdv_windowsforms
         private Form activeForm;
 
         //Construtor
-        public FrmPrincipal()
+        public Form1()
         {
             InitializeComponent();
+            random = new Random();
         }
 
         private void MenuSairPrincipal_Click(object sender, EventArgs e)
@@ -103,5 +99,39 @@ namespace pdv_windowsforms
             }
         }
 
+        private void btnProduto_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+        }
+
+        private void btnMovimentacao_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+        }
+
+        private void btnCargos_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+        }
+
+        private void btnRelatorios_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+        }
+
+        private void btnFuncionarios_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+        }
     }//
 }
