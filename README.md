@@ -1173,6 +1173,183 @@
     ---
 
 
+16. <span style="color:383E42"><b>Design das Telas/Forms</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    - Remover o menu menuStrip1 do Form1.
+    - Adicionar um Panel ao form Form1 - `panelMenu`
+        ````
+        - Dock a esquerda - BackColor: ControlDarkDark            Size: 220; 615
+        ````
+    - Adicionar Panel panelLogo ao Form1
+        ````
+        - Dock: Top
+          BackColor: ControlDark
+          Size: 811; 100
+        ````
+    - Adicionar um button btnProduto ao Form1
+        ````
+        - Dock: Top
+        - Size: 220; 60
+        - FlatStyle: Flat
+        - FlatAppearance - BorderSize: 0
+        - ForeColor: Gainsboro
+        - Image: Icone de produto
+        - ImageAlign: MiddleLeft
+        - TextImageRelation: ImageBeforeText
+        - Text: Produto
+        - BckColor: 51; 51; 64
+        ````
+    - Copiar botão 5x - Selecionar todos os botões e configurar
+        ````
+        - Padding - Left: 12
+        ````
+    - Nomear botões adicionados: `- Usuários - Clientes - Movimentação - Cargos, Relatórios e Funcionários`
+        ````
+        - Dock: Top
+        - Size: 220; 60
+        - FlatStyle: Flat
+        - FlatAppearance - BorderSize: 0
+        - ForeColor: Gainsboro
+        - Image: Icone apropriado
+        - ImageAlign: MiddleLeft
+        - TextImageRelation: ImageBeforeText
+        - Text: Texto referente ao botão
+        - BckColor: 51; 51; 64
+        ````
+    - Criar classe `pdv-windowsforms/ThemeColor.cs`:
+        ````cs
+        using System;
+        using System.Collections.Generic;
+        using System.Drawing;
+        using System.Linq;
+        using System.Text;
+        using System.Threading.Tasks;
+
+        namespace pdv_windowsforms
+        {
+            class ThemeColor
+            {
+                public static Color primaryColor { get; set; }
+                public static Color secondaryColor { get; set; }
+
+                public static List<string> colorList = new List<string>()
+                {
+                    "#3F5185",
+                    "#009688",
+                    "#0D421D",
+                    "#906720",
+                    "#009688",
+                    "#FF5722",
+                    "#607D88",
+                    "#FF9800",
+                    "#9C27B0",
+                    "#2196F3",
+                    "#EA676C",
+                    "#E41A4A",
+                    "#EF937E",
+                    "#F37521",
+                    "#A12059",
+                    "#126881",
+                    "#009488",
+                    "#364D5B",
+                    "#0094BC",
+                    "#E4126B",
+                    "#43B76E",
+                    "#009688",
+                    "#A21D1D",
+                    "#5146A7",
+                    "#46A769",
+                    "#B71C46",
+                };
+
+                public static Color changeColorBrightness(Color color, double correctionFactor)
+                {
+                    double red = color.R;
+                    double green = color.G;
+                    double blue = color.B;
+
+                    //if correctio factor is less than 0, darken color
+                    if (correctionFactor < 0)
+                    {
+                        correctionFactor = 1 + correctionFactor;
+                        red *= correctionFactor;
+                        green *= correctionFactor;
+                        blue *= correctionFactor;
+                    }
+                    //If correction factor is greater than zero, lighten color.
+                    else
+                    {
+                        red = (255 - red) * correctionFactor + red;
+                        green = (255 - green) * correctionFactor + green;
+                        blue = (255 - blue) * correctionFactor + blue;
+                    }
+                    return Color.FromArgb(color.A, (byte)red, (byte)green, (byte)blue);
+                }
+            }//
+        }
+        ````
+    - Inclusão de campos no Form1:
+        ````cs
+        public partial class FrmPrincipal : Form
+        {
+            //Fields
+            private Button currentButton;
+            private Random random;
+            private int tempIndex;
+            private Form activeForm;
+            //...
+        ````
+    - Criar função `selectThemeColor()`:
+        ````cs
+        //Método para selecionar uma cor aleatória para o tema da lista de cores (pode usar uma cor se quiser)
+        private Color selectThemeColor()
+        {
+            int index = random.Next(ThemeColor.colorList.Count);
+            while(tempIndex == index)
+            {
+                index = random.Next(ThemeColor.colorList.Count);
+            }
+            tempIndex = index;
+            string color = ThemeColor.colorList[index];
+            return ColorTranslator.FromHtml(color);
+        }
+        ````
+    - Criar função `activateButton(object btnSender)` - Ativa/destca botão clicado:
+        ````cs
+        // Ativa/destca botão clicado
+        private void activateButton(object btnSender)
+        {
+            if (btnSender != null)
+            {
+                btnCloseChildForm.Visible = true;
+                if(currentButton != (Button)btnSender) 
+                {
+                    deactivateButton();
+                    Color color = selectThemeColor();
+                    currentButton = (Button)btnSender;
+                    currentButton.BackColor = color;
+                    currentButton.ForeColor = Color.White;
+                    currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    panelTitleBar.BackColor = color;
+                    panelLogo.BackColor = ThemeColor.changeColorBrightness(color, -0.3);
+
+                    ThemeColor.primaryColor = color;
+                    ThemeColor.secondaryColor = ThemeColor.changeColorBrightness(color, -0.3);
+                    //btnCloseChildForm.Visible = true;
+                }
+            }
+        }
+        ````
+    
+
+    </p>
+
+    </details> 
+
+
+
 ## Meta
 ><span style="color:383E42"><b>Cristiano Mendonça Gueivara</b> </span>
 >
