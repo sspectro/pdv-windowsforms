@@ -29,208 +29,170 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.MenuCadastros = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuCadFuncionario = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuCadClientes = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuCadUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuCadFornecedor = new System.Windows.Forms.ToolStripMenuItem();
-            this.cargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuProdutos = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuProdProdutos = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuProdEstoque = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuMovimentacoes = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuMovFluxoDeCaixa = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuMovLancarVenda = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuMovEntradasSaidas = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuMovDespesas = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuRelatorios = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuRelProdutos = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuRelVendas = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuRelMovimentos = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuRelEntradasSaídas = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuRelDespesas = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuSairPrincipal = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.btnRelatorios = new System.Windows.Forms.Button();
+            this.btnCargos = new System.Windows.Forms.Button();
+            this.btnMovimentacao = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
+            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.btnProduto = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.img01Carrinho = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
+            this.btnFuncionarios = new System.Windows.Forms.Button();
+            this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img01Carrinho)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // panelMenu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuCadastros,
-            this.MenuProdutos,
-            this.MenuMovimentacoes,
-            this.MenuRelatorios,
-            this.MenuSairPrincipal});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.panelMenu.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelMenu.Controls.Add(this.btnFuncionarios);
+            this.panelMenu.Controls.Add(this.btnRelatorios);
+            this.panelMenu.Controls.Add(this.btnCargos);
+            this.panelMenu.Controls.Add(this.btnMovimentacao);
+            this.panelMenu.Controls.Add(this.btnClientes);
+            this.panelMenu.Controls.Add(this.btnUsuarios);
+            this.panelMenu.Controls.Add(this.btnProduto);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(220, 615);
+            this.panelMenu.TabIndex = 6;
             // 
-            // MenuCadastros
+            // panelLogo
             // 
-            this.MenuCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuCadFuncionario,
-            this.MenuCadClientes,
-            this.MenuCadUsuarios,
-            this.MenuCadFornecedor,
-            this.cargosToolStripMenuItem});
-            this.MenuCadastros.Name = "MenuCadastros";
-            this.MenuCadastros.Size = new System.Drawing.Size(71, 20);
-            this.MenuCadastros.Text = "Cadastros";
-            this.MenuCadastros.Click += new System.EventHandler(this.MenuCadastros_Click);
+            this.panelLogo.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(220, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(791, 100);
+            this.panelLogo.TabIndex = 7;
             // 
-            // MenuCadFuncionario
+            // btnRelatorios
             // 
-            this.MenuCadFuncionario.Name = "MenuCadFuncionario";
-            this.MenuCadFuncionario.Size = new System.Drawing.Size(180, 22);
-            this.MenuCadFuncionario.Text = "Funcionários";
-            this.MenuCadFuncionario.Click += new System.EventHandler(this.MenuCadFuncionario_Click);
+            this.btnRelatorios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(64)))));
+            this.btnRelatorios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRelatorios.FlatAppearance.BorderSize = 0;
+            this.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorios.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnRelatorios.Image = global::pdv_windowsforms.Properties.Resources.relatórios;
+            this.btnRelatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRelatorios.Location = new System.Drawing.Point(0, 300);
+            this.btnRelatorios.Name = "btnRelatorios";
+            this.btnRelatorios.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnRelatorios.Size = new System.Drawing.Size(220, 60);
+            this.btnRelatorios.TabIndex = 7;
+            this.btnRelatorios.Text = "Relatórios";
+            this.btnRelatorios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRelatorios.UseVisualStyleBackColor = false;
             // 
-            // MenuCadClientes
+            // btnCargos
             // 
-            this.MenuCadClientes.Name = "MenuCadClientes";
-            this.MenuCadClientes.Size = new System.Drawing.Size(180, 22);
-            this.MenuCadClientes.Text = "Clientes";
-            this.MenuCadClientes.Click += new System.EventHandler(this.MenuCadClientes_Click);
+            this.btnCargos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(64)))));
+            this.btnCargos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCargos.FlatAppearance.BorderSize = 0;
+            this.btnCargos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCargos.Image = global::pdv_windowsforms.Properties.Resources.Cargos1;
+            this.btnCargos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCargos.Location = new System.Drawing.Point(0, 240);
+            this.btnCargos.Name = "btnCargos";
+            this.btnCargos.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnCargos.Size = new System.Drawing.Size(220, 60);
+            this.btnCargos.TabIndex = 6;
+            this.btnCargos.Text = "Cargos";
+            this.btnCargos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCargos.UseVisualStyleBackColor = false;
             // 
-            // MenuCadUsuarios
+            // btnMovimentacao
             // 
-            this.MenuCadUsuarios.Name = "MenuCadUsuarios";
-            this.MenuCadUsuarios.Size = new System.Drawing.Size(180, 22);
-            this.MenuCadUsuarios.Text = "Usuários";
+            this.btnMovimentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(64)))));
+            this.btnMovimentacao.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMovimentacao.FlatAppearance.BorderSize = 0;
+            this.btnMovimentacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMovimentacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMovimentacao.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnMovimentacao.Image = global::pdv_windowsforms.Properties.Resources.movimentacao;
+            this.btnMovimentacao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMovimentacao.Location = new System.Drawing.Point(0, 180);
+            this.btnMovimentacao.Name = "btnMovimentacao";
+            this.btnMovimentacao.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnMovimentacao.Size = new System.Drawing.Size(220, 60);
+            this.btnMovimentacao.TabIndex = 5;
+            this.btnMovimentacao.Text = "Movimentação";
+            this.btnMovimentacao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMovimentacao.UseVisualStyleBackColor = false;
             // 
-            // MenuCadFornecedor
+            // btnClientes
             // 
-            this.MenuCadFornecedor.Name = "MenuCadFornecedor";
-            this.MenuCadFornecedor.Size = new System.Drawing.Size(180, 22);
-            this.MenuCadFornecedor.Text = "Fornecedor";
+            this.btnClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(64)))));
+            this.btnClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClientes.FlatAppearance.BorderSize = 0;
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnClientes.Image = global::pdv_windowsforms.Properties.Resources.clientes;
+            this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClientes.Location = new System.Drawing.Point(0, 120);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnClientes.Size = new System.Drawing.Size(220, 60);
+            this.btnClientes.TabIndex = 4;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClientes.UseVisualStyleBackColor = false;
             // 
-            // cargosToolStripMenuItem
+            // btnUsuarios
             // 
-            this.cargosToolStripMenuItem.Name = "cargosToolStripMenuItem";
-            this.cargosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cargosToolStripMenuItem.Text = "Cargos";
-            this.cargosToolStripMenuItem.Click += new System.EventHandler(this.MenuCadCargos_Click);
+            this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(64)))));
+            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnUsuarios.Image = global::pdv_windowsforms.Properties.Resources.usuarios;
+            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 60);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnUsuarios.Size = new System.Drawing.Size(220, 60);
+            this.btnUsuarios.TabIndex = 3;
+            this.btnUsuarios.Text = "Usuários";
+            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsuarios.UseVisualStyleBackColor = false;
             // 
-            // MenuProdutos
+            // btnProduto
             // 
-            this.MenuProdutos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuProdProdutos,
-            this.MenuProdEstoque});
-            this.MenuProdutos.Name = "MenuProdutos";
-            this.MenuProdutos.Size = new System.Drawing.Size(67, 20);
-            this.MenuProdutos.Text = "Produtos";
-            // 
-            // MenuProdProdutos
-            // 
-            this.MenuProdProdutos.Name = "MenuProdProdutos";
-            this.MenuProdProdutos.Size = new System.Drawing.Size(122, 22);
-            this.MenuProdProdutos.Text = "Produtos";
-            // 
-            // MenuProdEstoque
-            // 
-            this.MenuProdEstoque.Name = "MenuProdEstoque";
-            this.MenuProdEstoque.Size = new System.Drawing.Size(122, 22);
-            this.MenuProdEstoque.Text = "Estoque";
-            // 
-            // MenuMovimentacoes
-            // 
-            this.MenuMovimentacoes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuMovFluxoDeCaixa,
-            this.MenuMovLancarVenda,
-            this.MenuMovEntradasSaidas,
-            this.MenuMovDespesas});
-            this.MenuMovimentacoes.Name = "MenuMovimentacoes";
-            this.MenuMovimentacoes.Size = new System.Drawing.Size(104, 20);
-            this.MenuMovimentacoes.Text = "Movimentações";
-            // 
-            // MenuMovFluxoDeCaixa
-            // 
-            this.MenuMovFluxoDeCaixa.Name = "MenuMovFluxoDeCaixa";
-            this.MenuMovFluxoDeCaixa.Size = new System.Drawing.Size(163, 22);
-            this.MenuMovFluxoDeCaixa.Text = "Fluxo de caixa";
-            // 
-            // MenuMovLancarVenda
-            // 
-            this.MenuMovLancarVenda.Name = "MenuMovLancarVenda";
-            this.MenuMovLancarVenda.Size = new System.Drawing.Size(163, 22);
-            this.MenuMovLancarVenda.Text = "Lançar Venda";
-            // 
-            // MenuMovEntradasSaidas
-            // 
-            this.MenuMovEntradasSaidas.Name = "MenuMovEntradasSaidas";
-            this.MenuMovEntradasSaidas.Size = new System.Drawing.Size(163, 22);
-            this.MenuMovEntradasSaidas.Text = "Entradas / Saídas";
-            // 
-            // MenuMovDespesas
-            // 
-            this.MenuMovDespesas.Name = "MenuMovDespesas";
-            this.MenuMovDespesas.Size = new System.Drawing.Size(163, 22);
-            this.MenuMovDespesas.Text = "Despesas";
-            // 
-            // MenuRelatorios
-            // 
-            this.MenuRelatorios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuRelProdutos,
-            this.MenuRelVendas,
-            this.MenuRelMovimentos,
-            this.MenuRelEntradasSaídas,
-            this.MenuRelDespesas});
-            this.MenuRelatorios.Name = "MenuRelatorios";
-            this.MenuRelatorios.Size = new System.Drawing.Size(71, 20);
-            this.MenuRelatorios.Text = "Relatórios";
-            // 
-            // MenuRelProdutos
-            // 
-            this.MenuRelProdutos.Name = "MenuRelProdutos";
-            this.MenuRelProdutos.Size = new System.Drawing.Size(163, 22);
-            this.MenuRelProdutos.Text = "Produtos";
-            // 
-            // MenuRelVendas
-            // 
-            this.MenuRelVendas.Name = "MenuRelVendas";
-            this.MenuRelVendas.Size = new System.Drawing.Size(163, 22);
-            this.MenuRelVendas.Text = "Vendas";
-            // 
-            // MenuRelMovimentos
-            // 
-            this.MenuRelMovimentos.Name = "MenuRelMovimentos";
-            this.MenuRelMovimentos.Size = new System.Drawing.Size(163, 22);
-            this.MenuRelMovimentos.Text = "Movimentos";
-            // 
-            // MenuRelEntradasSaídas
-            // 
-            this.MenuRelEntradasSaídas.Name = "MenuRelEntradasSaídas";
-            this.MenuRelEntradasSaídas.Size = new System.Drawing.Size(163, 22);
-            this.MenuRelEntradasSaídas.Text = "Entradas / Saídas";
-            // 
-            // MenuRelDespesas
-            // 
-            this.MenuRelDespesas.Name = "MenuRelDespesas";
-            this.MenuRelDespesas.Size = new System.Drawing.Size(163, 22);
-            this.MenuRelDespesas.Text = "Despesas";
-            // 
-            // MenuSairPrincipal
-            // 
-            this.MenuSairPrincipal.Name = "MenuSairPrincipal";
-            this.MenuSairPrincipal.Size = new System.Drawing.Size(38, 20);
-            this.MenuSairPrincipal.Text = "Sair";
-            this.MenuSairPrincipal.Click += new System.EventHandler(this.MenuSairPrincipal_Click);
+            this.btnProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(64)))));
+            this.btnProduto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProduto.FlatAppearance.BorderSize = 0;
+            this.btnProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProduto.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnProduto.Image = global::pdv_windowsforms.Properties.Resources.produto;
+            this.btnProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProduto.Location = new System.Drawing.Point(0, 0);
+            this.btnProduto.Name = "btnProduto";
+            this.btnProduto.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnProduto.Size = new System.Drawing.Size(220, 60);
+            this.btnProduto.TabIndex = 2;
+            this.btnProduto.Text = "Produto";
+            this.btnProduto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProduto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProduto.UseVisualStyleBackColor = false;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(437, 45);
+            this.pictureBox5.Location = new System.Drawing.Point(725, 179);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(219, 147);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -240,7 +202,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(108, 221);
+            this.pictureBox4.Location = new System.Drawing.Point(396, 355);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(219, 147);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -250,7 +212,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::pdv_windowsforms.Properties.Resources.green_2084561_1280;
-            this.pictureBox3.Location = new System.Drawing.Point(437, 221);
+            this.pictureBox3.Location = new System.Drawing.Point(725, 355);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(219, 147);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -260,66 +222,69 @@
             // img01Carrinho
             // 
             this.img01Carrinho.Image = global::pdv_windowsforms.Properties.Resources.CarringoCompra;
-            this.img01Carrinho.Location = new System.Drawing.Point(108, 45);
+            this.img01Carrinho.Location = new System.Drawing.Point(396, 179);
             this.img01Carrinho.Name = "img01Carrinho";
             this.img01Carrinho.Size = new System.Drawing.Size(219, 147);
             this.img01Carrinho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.img01Carrinho.TabIndex = 1;
             this.img01Carrinho.TabStop = false;
             // 
+            // btnFuncionarios
+            // 
+            this.btnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(64)))));
+            this.btnFuncionarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFuncionarios.FlatAppearance.BorderSize = 0;
+            this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFuncionarios.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnFuncionarios.Image = global::pdv_windowsforms.Properties.Resources.usuarios1;
+            this.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionarios.Location = new System.Drawing.Point(0, 360);
+            this.btnFuncionarios.Name = "btnFuncionarios";
+            this.btnFuncionarios.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnFuncionarios.Size = new System.Drawing.Size(220, 60);
+            this.btnFuncionarios.TabIndex = 8;
+            this.btnFuncionarios.Text = "Funcionários";
+            this.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFuncionarios.UseVisualStyleBackColor = false;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1011, 615);
+            this.Controls.Add(this.panelLogo);
+            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.img01Carrinho);
-            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmPrincipal";
             this.Text = "Principal";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.img01Carrinho)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem MenuCadastros;
-        private System.Windows.Forms.ToolStripMenuItem MenuProdutos;
-        private System.Windows.Forms.ToolStripMenuItem MenuMovimentacoes;
-        private System.Windows.Forms.ToolStripMenuItem MenuRelatorios;
-        private System.Windows.Forms.ToolStripMenuItem MenuSairPrincipal;
         private System.Windows.Forms.PictureBox img01Carrinho;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.ToolStripMenuItem MenuCadFuncionario;
-        private System.Windows.Forms.ToolStripMenuItem MenuCadClientes;
-        private System.Windows.Forms.ToolStripMenuItem MenuCadUsuarios;
-        private System.Windows.Forms.ToolStripMenuItem MenuCadFornecedor;
-        private System.Windows.Forms.ToolStripMenuItem MenuProdProdutos;
-        private System.Windows.Forms.ToolStripMenuItem MenuProdEstoque;
-        private System.Windows.Forms.ToolStripMenuItem MenuMovFluxoDeCaixa;
-        private System.Windows.Forms.ToolStripMenuItem MenuMovLancarVenda;
-        private System.Windows.Forms.ToolStripMenuItem MenuMovEntradasSaidas;
-        private System.Windows.Forms.ToolStripMenuItem MenuMovDespesas;
-        private System.Windows.Forms.ToolStripMenuItem MenuRelProdutos;
-        private System.Windows.Forms.ToolStripMenuItem MenuRelVendas;
-        private System.Windows.Forms.ToolStripMenuItem MenuRelMovimentos;
-        private System.Windows.Forms.ToolStripMenuItem MenuRelEntradasSaídas;
-        private System.Windows.Forms.ToolStripMenuItem MenuRelDespesas;
-        private System.Windows.Forms.ToolStripMenuItem cargosToolStripMenuItem;
+        private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Button btnProduto;
+        private System.Windows.Forms.Panel panelLogo;
+        private System.Windows.Forms.Button btnUsuarios;
+        private System.Windows.Forms.Button btnClientes;
+        private System.Windows.Forms.Button btnMovimentacao;
+        private System.Windows.Forms.Button btnCargos;
+        private System.Windows.Forms.Button btnRelatorios;
+        private System.Windows.Forms.Button btnFuncionarios;
     }
 }
 

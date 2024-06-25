@@ -1,7 +1,10 @@
 # PDV Completo em C#
 
 >Projeto de PDV completo em C# com MySql.
-> Nem todas as configurações estão iguais as do vídeo.
+> Nem todas as configurações estão iguais as dos vídeos. 
+> Nos vídeos é criado um outro projeto(Moderno) para criação do design.
+> Em seguida é transferido os arquivos do pdv para o novo projeto. 
+> `A parte de design eu crio direto neste projeto.`
 >>Projeto desenvolvido no curso - Youtube [PDV Completo em C#](https://www.youtube.com/@PortalZatecSistemas)
 
 ## Ambiente de Desenvolvimento

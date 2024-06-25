@@ -131,6 +131,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThemeColor.cs" />
     <EmbeddedResource Include="cadastro\FrmCargo.resx">
       <DependentUpon>FrmCargo.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +188,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sem_foto2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\produto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cargos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\movimentacao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cargos1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\relatórios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
