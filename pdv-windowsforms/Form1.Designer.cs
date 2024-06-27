@@ -74,7 +74,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 615);
+            this.panelMenu.Size = new System.Drawing.Size(220, 761);
             this.panelMenu.TabIndex = 6;
             // 
             // btnFuncionarios
@@ -251,7 +251,7 @@
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(220, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(791, 100);
+            this.panelTitleBar.Size = new System.Drawing.Size(964, 100);
             this.panelTitleBar.TabIndex = 7;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -272,7 +272,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitle.Location = new System.Drawing.Point(356, 37);
+            this.lblTitle.Location = new System.Drawing.Point(443, 37);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(78, 26);
             this.lblTitle.TabIndex = 1;
@@ -287,7 +287,7 @@
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 100);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(791, 515);
+            this.panelDesktop.Size = new System.Drawing.Size(964, 661);
             this.panelDesktop.TabIndex = 8;
             // 
             // pictureBox5
@@ -338,7 +338,7 @@
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFechar.Location = new System.Drawing.Point(744, 23);
+            this.btnFechar.Location = new System.Drawing.Point(917, 23);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(35, 38);
             this.btnFechar.TabIndex = 7;
@@ -353,7 +353,7 @@
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnMinimizar.Location = new System.Drawing.Point(658, 23);
+            this.btnMinimizar.Location = new System.Drawing.Point(831, 23);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(34, 32);
             this.btnMinimizar.TabIndex = 6;
@@ -368,7 +368,7 @@
             this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximizar.Font = new System.Drawing.Font("Lucida Console", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximizar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnMaximizar.Location = new System.Drawing.Point(689, 23);
+            this.btnMaximizar.Location = new System.Drawing.Point(862, 23);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(49, 32);
             this.btnMaximizar.TabIndex = 5;
@@ -380,7 +380,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 615);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);

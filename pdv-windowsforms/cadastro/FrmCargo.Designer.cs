@@ -132,7 +132,7 @@
             this.Controls.Add(this.txtCargo);
             this.Controls.Add(this.lblCargo);
             this.Name = "FrmCargo";
-            this.Text = "Cadastro Cargo";
+            this.Text = "Cadastro de Cargos";
             this.Load += new System.EventHandler(this.FrmCargo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgridListCargos)).EndInit();
             this.ResumeLayout(false);

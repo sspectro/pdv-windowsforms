@@ -129,7 +129,8 @@ namespace pdv_windowsforms
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            activateButton(sender);
+            //activateButton(sender);
+            openChildForm(new cadastro.FrmCliente(), sender);
         }
 
         private void btnMovimentacao_Click(object sender, EventArgs e)
@@ -139,7 +140,8 @@ namespace pdv_windowsforms
 
         private void btnCargos_Click(object sender, EventArgs e)
         {
-            activateButton(sender);
+            //activateButton(sender);
+            openChildForm(new cadastro.FrmCargo(), sender);
         }
 
         private void btnRelatorios_Click(object sender, EventArgs e)
@@ -149,7 +151,8 @@ namespace pdv_windowsforms
 
         private void btnFuncionarios_Click(object sender, EventArgs e)
         {
-            activateButton(sender);
+            //activateButton(sender);
+            openChildForm(new cadastro.FrmFuncionario(), sender);
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)

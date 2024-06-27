@@ -386,7 +386,7 @@
             this.Controls.Add(this.lblCadFuncNome);
             this.Name = "FrmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCliente";
+            this.Text = "Cadastro de Clientes";
             this.Load += new System.EventHandler(this.FrmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgridListClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).EndInit();
