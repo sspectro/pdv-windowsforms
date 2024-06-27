@@ -18,6 +18,9 @@ namespace pdv_windowsforms
         {
             InitializeComponent();
             random = new Random();
+            btnCloseChildForm.Visible = false;
+            this.Text = string.Empty;
+            this.ControlBox = false;
         }
 
         //Método para selecionar uma cor aleatória para o tema da lista de cores (pode usar uma cor se quiser)
@@ -91,6 +94,16 @@ namespace pdv_windowsforms
             childForm.Show();
             lblTitle.Text = childForm.Text;
 
+        }
+        //Função para retornar o Form1 a forma inicial
+        private void reset()
+        {
+            deactivateButton();
+            lblTitle.Text = "Home";
+            panelTitleBar.BackColor = Color.FromArgb(0, 156, 136);
+            //39; 39; 58
+            panelLogo.BackColor = Color.FromArgb(39, 39, 58);
+            btnCloseChildForm.Visible = false;
         }
 
         private void btnProduto_Click(object sender, EventArgs e)
