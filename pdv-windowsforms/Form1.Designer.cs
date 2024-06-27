@@ -42,6 +42,7 @@
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.panelDesktop = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -49,6 +50,7 @@
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
+            this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -269,44 +271,56 @@
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "HOME";
             // 
+            // panelDesktop
+            // 
+            this.panelDesktop.Controls.Add(this.pictureBox5);
+            this.panelDesktop.Controls.Add(this.pictureBox4);
+            this.panelDesktop.Controls.Add(this.pictureBox3);
+            this.panelDesktop.Controls.Add(this.img01Carrinho);
+            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDesktop.Location = new System.Drawing.Point(220, 100);
+            this.panelDesktop.Name = "panelDesktop";
+            this.panelDesktop.Size = new System.Drawing.Size(791, 515);
+            this.panelDesktop.TabIndex = 8;
+            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(725, 179);
+            this.pictureBox5.Location = new System.Drawing.Point(450, 96);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(219, 147);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabIndex = 9;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(396, 355);
+            this.pictureBox4.Location = new System.Drawing.Point(121, 272);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(219, 147);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 4;
+            this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::pdv_windowsforms.Properties.Resources.green_2084561_1280;
-            this.pictureBox3.Location = new System.Drawing.Point(725, 355);
+            this.pictureBox3.Location = new System.Drawing.Point(450, 272);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(219, 147);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
             // 
             // img01Carrinho
             // 
             this.img01Carrinho.Image = global::pdv_windowsforms.Properties.Resources.CarringoCompra;
-            this.img01Carrinho.Location = new System.Drawing.Point(396, 179);
+            this.img01Carrinho.Location = new System.Drawing.Point(121, 96);
             this.img01Carrinho.Name = "img01Carrinho";
             this.img01Carrinho.Size = new System.Drawing.Size(219, 147);
             this.img01Carrinho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.img01Carrinho.TabIndex = 1;
+            this.img01Carrinho.TabIndex = 6;
             this.img01Carrinho.TabStop = false;
             // 
             // Form1
@@ -314,21 +328,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 615);
+            this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.img01Carrinho);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Principal";
-            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
+            this.panelDesktop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -338,10 +350,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox img01Carrinho;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.Label lblTitle;
@@ -355,6 +363,11 @@
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnProduto;
         private System.Windows.Forms.Label lblLogo;
+        private System.Windows.Forms.Panel panelDesktop;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox img01Carrinho;
     }
 }
 

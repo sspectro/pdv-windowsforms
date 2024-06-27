@@ -20,34 +20,6 @@ namespace pdv_windowsforms
             random = new Random();
         }
 
-        private void MenuSairPrincipal_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void MenuCadFuncionario_Click(object sender, EventArgs e)
-        {
-            cadastro.FrmFuncionario frm=new cadastro.FrmFuncionario();
-
-            frm.ShowDialog();
-        }
-        private void MenuCadCargos_Click(object sender, EventArgs e)
-        {
-            cadastro.FrmCargo frmCargo = new cadastro.FrmCargo();
-            frmCargo.ShowDialog();
-        }
-
-        private void MenuCadClientes_Click(object sender, EventArgs e)
-        {
-            cadastro.FrmCliente frmCliente = new cadastro.FrmCliente();
-            frmCliente.ShowDialog();
-        }
-
-        private void FrmPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
         //Método para selecionar uma cor aleatória para o tema da lista de cores (pode usar uma cor se quiser)
         private Color selectThemeColor()
         {
@@ -99,6 +71,28 @@ namespace pdv_windowsforms
             }
         }
 
+        //Abre form filho
+        private void openChildForm(Form childForm, object btnSender)
+        {
+            //verifica se tem um form em active form. Caso tenha, então, fecha para abrir outro
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+
+            activateButton(btnSender);
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panelDesktop.Controls.Add(childForm);
+            this.panelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            lblTitle.Text = childForm.Text;
+
+        }
+
         private void btnProduto_Click(object sender, EventArgs e)
         {
             activateButton(sender);
@@ -132,6 +126,11 @@ namespace pdv_windowsforms
         private void btnFuncionarios_Click(object sender, EventArgs e)
         {
             activateButton(sender);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }//
 }

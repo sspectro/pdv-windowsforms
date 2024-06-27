@@ -196,5 +196,20 @@ namespace pdv_windowsforms.cadastro
             txtCargo.Enabled = true;
             btnSalvar.Enabled = true;
         }
-    }
+
+        private void loadTheme()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.primaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.secondaryColor;
+                }
+            }
+            lblCargo.ForeColor = ThemeColor.primaryColor;
+        }
+    }//
 }
