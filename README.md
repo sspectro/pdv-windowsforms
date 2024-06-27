@@ -1180,7 +1180,8 @@
     - Remover o menu menuStrip1 do Form1.
     - Adicionar um Panel ao form Form1 - `panelMenu`
         ````
-        - Dock a esquerda - BackColor: ControlDarkDark            Size: 220; 615
+        - Dock a esquerda - BackColor: ControlDarkDark  
+          Size: 220; 615
         ````
     - Adicionar Panel panelLogo ao Form1
         ````
@@ -1219,6 +1220,7 @@
         - BckColor: 51; 51; 64
         ````
     - Criar classe `pdv-windowsforms/ThemeColor.cs`:
+        Função changeColorBrightness: Altera cor passada como parâmetro e sua intensidade. Usado para alterar a  cor do panelTitleBar e panelLogo (BackColor)
         ````cs
         using System;
         using System.Collections.Generic;
@@ -1372,7 +1374,282 @@
         Text:
         FlatAppearance - BorderSize:0
         Image: uma imagem de x
+    - Iniciar campo `random` no construtor Form1
+        ````cs
+        //Construtor
+        public Form1()
+        {
+            InitializeComponent();
+            random = new Random();
+        }
+        ````
+    - Adicionar chamada ao metodo activateButton ao evento clic dos botões e testar
+        ````cs
+        private void btnProduto_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+        }
+        ````
+    - Adicionar panelDesktop ao Form1:
+    Recortar imagens e Adicionar panelDesktop ao Form1 de forma preencher toda parte branca (vazia)
+    Em seguida, cole as imagens no panelDesktop. `Dock: Fill`
+        > `StartPosition - CenterScreen`
+        >><img src="readmeImages/projectImages/inclusaoPanelDesktop.png">
+    - Criar função openChildForm em Form1:
+        ````cs
+        //Abre form filho
+        private void openChildForm(Form childForm, object btnSender)
+        {
+            //verifica se tem um form em active form. Caso tenha, então, fecha para abrir outro
+            if(activeForm != null)
+            {
+                activeForm.Close();
+            }
+
+            activateButton(btnSender);
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panelDesktop.Controls.Add(childForm);
+            this.panelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            lblTitle.Text = childForm.Text;
+
+        }
+        ````
+    - Criar função loadTheme no FrmProduto:
+     Responsável por mudar as cores do form
+        ````cs
+        private void loadTheme()
+        {
+            foreach(Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.primaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.secondaryColor;
+                }
+            }
+            lblCargo.ForeColor = ThemeColor.primaryColor; 
+        }
+        ````
+    - Criar função reset() e definir tamanho mínimo ao redmensionar Form1:
+        ````cs
+                //Função para retornar o Form1 a forma inicial
+        private void reset()
+        {
+            deactivateButton();
+            lblTitle.Text = "Home";
+            panelTitleBar.BackColor = Color.FromArgb(0, 156, 136);
+            //39; 39; 58
+            panelLogo.BackColor = Color.FromArgb(39, 39, 58);
+            btnCloseChildForm.Visible = false;
+        }
+        ````
+    - Ocultar botões padão do Form1 no construtor - os que ficam a direita canto superior
+        ````cs
+        //Construtor
+        public Form1()
+        {
+            //...
+            this.Text = string.Empty;
+            this.ControlBox = false;
+        ````
+    - Configurar `panelTitleBar` Form1 para  possilitar arrastar
+    Em eventos `MouseDown` - duplo click para abrir código
+        ````cs
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        ````
+    - Código do evento - pode ficar em qualquer parte do código do Form1
+        ````cs
+        [DllImport("user32.dll", CharSet = CharSet.Unicode, EntryPoint = "MessageBox")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int lParam);
+        ````
+    - Definir Form1 para ficar expansível apenas na área de trabalho sem ultrapassar barra de tarefas.
+        ````cs
+         //Construtor
+        public Form1()
+        {
+            //...
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        ````
     
+    - Adicionar botão Minimizar(btnMinimizar), Maximizar(btnMaximizar) e  Fechar(btnFechar) ao panelTitleBar
+        ````
+        Text: O
+        Font - Size:15
+        FlatStyle: Flat - BorderSize:0
+        ForeColor: Control
+        Anchor: Top,Right
+        ````
+        Evento click do btnMinimizar
+        ````cs
+                private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        ````
+        Evento click do btnMaximizar
+        ````cs
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+        ````
+
+        Evento click do btnFechar
+        ````cs
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            //Caso queira incluir mensagem de aviso ao fechar o form, use o código comentado
+            //var res = MessageBox.Show("Deseja realmente Fechar?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            //if (res == DialogResult.Yes)
+            //{ 
+            //    Application.Exit();
+            //}
+
+            Application.Exit();
+        }
+        ````
+    - Incluir chamada `openChildForm` no evento click dos botões do menu:
+      <br>Abre o form no panelDesktop
+    Evento click `btnCargo`
+        ````cs
+        private void btnCargos_Click(object sender, EventArgs e)
+        {
+            //activateButton(sender);
+            openChildForm(new cadastro.FrmCargo(), sender);
+        }
+        ````
+
+        Evento click `btnClientes`
+        ````cs
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            //activateButton(sender);
+            openChildForm(new cadastro.FrmCliente(), sender);
+        }
+        ````
+        Evento click `btnFuncionarios`
+        ````cs
+        private void btnFuncionarios_Click(object sender, EventArgs e)
+        {
+            //activateButton(sender);
+            openChildForm(new cadastro.FrmFuncionario(), sender);
+        }
+        ````
+    - Incluir campo `data` na tabela cargos, consulta sql em `listar` e `dtgridListCargos` de `FrmCargo`
+        ````cs
+        private void listar()
+        {
+            con.abrirConexao();
+            sql = "select id, cargo, data from cargos order by cargo asc";
+        //...
+        ````
+        ````cs
+        private void formatarGD()
+        {
+            dtgridListCargos.Columns[0].HeaderText = "ID";
+            dtgridListCargos.Columns[1].HeaderText = "Cargo";
+            dtgridListCargos.Columns[2].HeaderText = "Data";
+
+
+            dtgridListCargos.Columns[0].Width = 50;
+            dtgridListCargos.Columns[1].Width = 100;
+            dtgridListCargos.Columns[2].Width = 100;
+            dtgridListCargos.Columns[0].Visible = false;
+        }
+        ````        Testar sistema após alteração
+    - Criar método loadTheme no FrmCargo e incluir chamad o envento load
+        ````cs
+        private void loadTheme()
+        {
+            foreach(Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.primaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.secondaryColor;
+                }
+            }
+            lblCargo.ForeColor = ThemeColor.primaryColor; 
+        }
+        ````
+        ````cs
+        private void FrmCargo_Load(object sender, EventArgs e)
+        {
+            loadTheme();
+            listar();
+        }
+        ````
+    - Criar método loadTheme no FrmCliente e incluir chamad o envento load 
+        ````cs
+        private void loadTheme()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.primaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.secondaryColor;
+                }
+            }
+            lblBuscarPorNome.ForeColor = ThemeColor.primaryColor;
+        }
+        ````
+        ````cs
+        private void FrmCliente_Load(object sender, EventArgs e)
+        {
+            loadTheme()
+            listar();
+        }
+        ````
+    - Criar método loadTheme no FrmFuncionarios e incluir chamad o envento load 
+        ````cs
+        private void loadTheme()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.primaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.secondaryColor;
+                }
+            }
+            lblCadFuncNome.ForeColor = ThemeColor.primaryColor;
+        }
+        ````
+        ````cs
+        private void FrmFuncionario_Load(object sender, EventArgs e)
+        {
+            loadTheme();
+            //...
+        ````
+
 
     </p>
 
