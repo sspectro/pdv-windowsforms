@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace pdv_windowsforms
 {
@@ -21,7 +21,18 @@ namespace pdv_windowsforms
             btnCloseChildForm.Visible = false;
             this.Text = string.Empty;
             this.ControlBox = false;
+
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode, EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int lParam);
 
         //Método para selecionar uma cor aleatória para o tema da lista de cores (pode usar uma cor se quiser)
         private Color selectThemeColor()
@@ -141,9 +152,10 @@ namespace pdv_windowsforms
             activateButton(sender);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
-
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }//
 }
