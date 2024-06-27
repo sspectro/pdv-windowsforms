@@ -242,7 +242,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmFuncionario";
             this.Text = "Cadastro Funcionário";
-            this.Load += new System.EventHandler(this.FrmCadastro_Load);
+            this.Load += new System.EventHandler(this.FrmFuncionario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgridListFuncionarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictboxFoto)).EndInit();
             this.ResumeLayout(false);

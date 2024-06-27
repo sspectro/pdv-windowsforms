@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
@@ -31,14 +32,7 @@ namespace pdv_windowsforms.cadastro
         {
             InitializeComponent();
         }
-        private void FrmCadastro_Load(object sender, EventArgs e)
-        {
-            limparFoto();
-            listar();
-            listarCargos();
-            alterouImagem = "não";
-            cbCargo.Text = "Selecione o Cargo";
-        }
+
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -344,6 +338,16 @@ namespace pdv_windowsforms.cadastro
 
         }
 
+        private void FrmFuncionario_Load(object sender, EventArgs e)
+        {
+            loadTheme();
+            limparFoto();
+            listar();
+            listarCargos();
+            alterouImagem = "não";
+            cbCargo.Text = "Selecione o Cargo";
+        }
+
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             var res = MessageBox.Show("Deseja realmente Excluir!", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -369,5 +373,20 @@ namespace pdv_windowsforms.cadastro
 
             }
         }
-    }
+
+        private void loadTheme()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.primaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.secondaryColor;
+                }
+            }
+            lblCadFuncNome.ForeColor = ThemeColor.primaryColor;
+        }
+    }//
 }

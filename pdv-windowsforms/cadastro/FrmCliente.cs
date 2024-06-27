@@ -72,6 +72,7 @@ namespace pdv_windowsforms.cadastro
 
         private void FrmCliente_Load(object sender, EventArgs e)
         {
+            loadTheme();
             listar();
         }
 
@@ -197,5 +198,20 @@ namespace pdv_windowsforms.cadastro
         //    btnImg.Enabled = true;
         //}
 
-    }
+        private void loadTheme()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.primaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.secondaryColor;
+                }
+            }
+            lblBuscarPorNome.ForeColor = ThemeColor.primaryColor;
+        }
+
+    }//
 }

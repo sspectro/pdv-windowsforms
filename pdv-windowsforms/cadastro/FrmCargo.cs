@@ -30,14 +30,18 @@ namespace pdv_windowsforms.cadastro
         {
             dtgridListCargos.Columns[0].HeaderText = "ID";
             dtgridListCargos.Columns[1].HeaderText = "Cargo";
+            dtgridListCargos.Columns[2].HeaderText = "Data";
+
 
             dtgridListCargos.Columns[0].Width = 50;
             dtgridListCargos.Columns[1].Width = 100;
+            dtgridListCargos.Columns[2].Width = 100;
             dtgridListCargos.Columns[0].Visible = false;
         }
 
         private void FrmCargo_Load(object sender, EventArgs e)
         {
+            loadTheme();
             listar();
             btnNovo.Enabled = true;
             btnEditar.Enabled = false;
@@ -104,7 +108,7 @@ namespace pdv_windowsforms.cadastro
         private void listar()
         {
             con.abrirConexao();
-            sql = "select id, cargo from cargos order by cargo asc";
+            sql = "select id, cargo, data from cargos order by cargo asc";
             cmd = new MySqlCommand(sql, con.con);
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
             dataAdapter.SelectCommand = cmd;
