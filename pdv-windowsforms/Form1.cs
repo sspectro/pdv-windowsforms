@@ -157,5 +157,35 @@ namespace pdv_windowsforms
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            //Caso queira incluir mensagem de aviso ao fechar o form, use o código comentado
+            //var res = MessageBox.Show("Deseja realmente Fechar?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            //if (res == DialogResult.Yes)
+            //{ 
+            //    Application.Exit();
+            //}
+
+            Application.Exit();
+        }
     }//
 }
