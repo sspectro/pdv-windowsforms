@@ -173,6 +173,16 @@ namespace pdv_windowsforms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap relatoriost {
+            get {
+                object obj = ResourceManager.GetObject("relatoriost", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sem_foto2 {
             get {
                 object obj = ResourceManager.GetObject("sem_foto2", resourceCulture);

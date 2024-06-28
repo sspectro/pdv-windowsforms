@@ -190,5 +190,26 @@ namespace pdv_windowsforms
 
             Application.Exit();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusData.Text = DateTime.Today.ToString("dd/MM/yyyy");
+            toolStripStatusHora.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
     }//
 }
