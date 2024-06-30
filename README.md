@@ -1577,7 +1577,8 @@
             dtgridListCargos.Columns[2].Width = 100;
             dtgridListCargos.Columns[0].Visible = false;
         }
-        ````        Testar sistema após alteração
+        ````
+        Testar sistema após alteração
     - Criar método loadTheme no FrmCargo e incluir chamad o envento load
         ````cs
         private void loadTheme()
@@ -1648,6 +1649,177 @@
         {
             loadTheme();
             //...
+        ````
+    - Criação de labels para a imagens - lblMoviementacao, lblAbrirCaixa, lblFluxoCaixa e lblRelatorios
+    - Adicionar toolStrip ao painelDesktop - com dois labels para data e dois para hora
+        ````
+        Name: toolStripBarraStatus
+        Dock: bottom
+        ````
+    - Incluir timer painelDescktop - permite deixar o toolStrip dinâmico com a hora
+        ````cs
+        //Name:timer
+        //Enabled:true
+        //ent Tick
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusData.Text = DateTime.Today.ToString("dd/MM/yyyy");
+            toolStripStatusHora.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+        ````
+
+    </p>
+
+    </details> 
+
+ 
+17. <span style="color:383E42"><b>Criar `FrmLogin` na Raiz do Projeto</b></span>
+    <details><summary><span style="color:Chocolate">Detalhes</span></summary>
+    <p>
+
+    - Criar `pdv-windowsforms/FrmLogin`
+    >Definir MaximumSize e MinimumSize caso quei controlar tamanho que pode expandir ou diminuir
+    ````
+    StartPosition: CenterScreen
+    Text:Acessar
+    BackColor:ActiveCaption
+    ````
+    - Adicionar label `lblUsuario`
+        ````
+        Font - Size:14        
+        Text:Usuário
+        ````
+    - Adicionar label `lblSenha`
+        ````
+        Font - Size:14
+        Text:Senha
+        ````
+    - Adicionar textBox `txtUsuario`
+    - Adicionar textBox `txtSenha` 
+    `PasswordChar:*`
+    - Adicionar botton `btnEntrar`
+        ````
+        Font-Size:13
+        Text:Entrar
+        ````
+    - Adicionar btnCancelar
+        ````
+        Font-Size:13
+        Text:Cancelar
+        ````
+    - Definir abertura de `FrmLogin` em `Program.cs`
+        ````cs
+        static void Main()
+        {
+            //...
+            Application.Run(new FrmLogin());
+
+        }
+        ````
+
+    - Criar tabela usuarios no database `pdv` e inserir um usuário
+
+    
+        | Nome | Tipo | Colação | Atributos | Nulo | Padrão | Comentários | Extra |
+        | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | 
+        | id Primária | int(11) |  |  | Não | Nenhum |  | AUTO_INCREMENT |
+        | nome | varchar(30) | utf8_general_ci |  | Não | Nenhum |  |  |
+        | cargo | varchar(20) | utf8_general_ci |  | Não | Nenhum |  |  |
+        | usuario | varchar(30) | utf8_general_ci |  | Não | Nenhum |  |  |
+        | senha | varchar(30) | utf8_general_ci |  | Não | Nenhum |  |  |
+        | data | date |  |  | Não | Nenhum |  |  |
+    
+        ````sql
+        INSERT into usuarios(id,nome,cargo,usuario,senha,data) VALUES(null,'alex','Gerente','alex','123','2024-02-19');
+        ````
+    - Criar variáveis em `FrmLogin`
+        ````cs
+        public partial class FrmLogin : Form
+        {
+            Conexao con = new Conexao();
+            string sql;
+            MySqlCommand cmd;
+
+            string id = "";
+            string cargoAntigo = "";
+            //...
+        ````
+    - Criar classe `pdv-windowsforms/Verificar.cs` na raiz
+        ````cs
+        namespace pdv_windowsforms
+        {
+            class Verificar
+            {
+                public static string nomeUsuario;
+                public static string cargoUsuario;
+
+            }
+        }
+        ````
+    - Exibir usuário logado no sistema: Adicionar labels
+        ````
+        label Usuário(toolStripStatusLblUsuario)
+        label toolStripStatusLblNomeUsuario
+        label toolStripStatusLblCargo
+        ````
+    - Incluir o nome de usuário e cargo no evento `load` de Form1
+        ````cs
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            toolStripStatusLblNomeUsuario.Text = Verificar.nomeUsuario;
+            toolStripStatusLblCargo.Text = Verificar.cargoUsuario;
+        }
+        ````
+    - Criar função `chamarLogin`
+        ````cs
+        private void chamarLogin()
+        {
+            //
+            if (txtUsuario.Text.Trim() == "" || txtSenha.Text.Trim() == "")
+            {
+                MessageBox.Show("Informe o usuário e/ou senha!");
+                return;
+            }
+            try
+            {
+                con.abrirConexao();
+                MySqlCommand cmdVerificar;
+                MySqlDataReader reader; //Com o reader podemos extrari dados da tabela e usar em outros forms
+
+                cmdVerificar = new MySqlCommand("SELECT * FROM usuarios WHERE usuario = @usuario AND senha = @senha", con.con);
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.SelectCommand = cmdVerificar;
+                cmdVerificar.Parameters.AddWithValue("@usuario", txtUsuario.Text);
+                cmdVerificar.Parameters.AddWithValue("@senha", txtSenha.Text);
+                reader = cmdVerificar.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    //extraindo dados do login
+                    while (reader.Read())
+                    {
+                        Verificar.nomeUsuario = Convert.ToString(reader["usuario"]);
+                        Verificar.cargoUsuario = Convert.ToString(reader["cargo"]);
+
+                        Form1 form1 = new Form1();
+                        form1.Show();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Usuário e/ou senha inválido!");
+                    return;
+                }
+                con.fecharConexao();
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         ````
 
 

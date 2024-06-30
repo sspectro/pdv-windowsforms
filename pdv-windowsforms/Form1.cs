@@ -26,7 +26,8 @@ namespace pdv_windowsforms
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            toolStripStatusLblNomeUsuario.Text = Verificar.nomeUsuario;
+            toolStripStatusLblCargo.Text = Verificar.cargoUsuario;
         }
 
         [DllImport("user32.dll", CharSet = CharSet.Unicode, EntryPoint = "ReleaseCapture")]

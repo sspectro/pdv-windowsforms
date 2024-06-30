@@ -67,6 +67,7 @@
             // 
             this.txtSenha.Location = new System.Drawing.Point(128, 135);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(321, 20);
             this.txtSenha.TabIndex = 3;
             // 
@@ -79,6 +80,7 @@
             this.btnEntrar.TabIndex = 4;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
             // btnCancelar
             // 
