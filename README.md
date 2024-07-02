@@ -3,11 +3,11 @@
 >Projeto de PDV completo em C# com MySql.
 > Nem todas as configurações estão iguais as dos vídeos. 
 > Nos vídeos é criado um outro projeto(Moderno) para criação do design.
-> Em seguida é transferido os arquivos do pdv para o novo projeto. 
+> Em seguida é transferido os arquivos do pdv para o novo projeto. Porém não faço isso.
 > `A parte de design eu crio direto neste projeto.`
->>Projeto desenvolvido no curso - Youtube [PDV Completo em C#](https://www.youtube.com/@PortalZatecSistemas)
+>>Projeto desenvolvido Canal - Youtube [PDV Completo em C#](https://www.youtube.com/@PortalZatecSistemas)
 
-## Ambiente de Desenvolvimento
+## Ambiente de Desenvolvimento e Tecnologias
     C#, Windows, Microsoft Visual Studio, xampp, MySql
 
 ## Documentação
@@ -1739,9 +1739,6 @@
             Conexao con = new Conexao();
             string sql;
             MySqlCommand cmd;
-
-            string id = "";
-            string cargoAntigo = "";
             //...
         ````
     - Criar classe `pdv-windowsforms/Verificar.cs` na raiz
@@ -1808,7 +1805,10 @@
                 else
                 {
                     MessageBox.Show("Usuário e/ou senha inválido!");
-                    return;
+                    txtSenha.Text = "";
+                    txtUsuario.Text = "";
+                    txtUsuario.Focus();
+                    //return;
                 }
                 con.fecharConexao();
 
@@ -1829,15 +1829,13 @@
 
 
 
-## Meta
+## Autor
 ><span style="color:383E42"><b>Cristiano Mendonça Gueivara</b> </span>
 >
->>[<img src="readmeImages/githubIcon.png">](https://github.com/sspectro "Meu perfil no github")
+>>[<img src="https://sspectro.github.io/images/githubIcon.png">](https://github.com/sspectro "Meu perfil no github")
 >
->><a href="https://linkedin.com/in/cristiano-m-gueivara/"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> 
+>><a href="https://linkedin.com/in/cristiano-m-gueivara/"><img src="https://sspectro.github.io/images/linkedinIcon.png"></a> 
 >
 >>[<img src="https://sspectro.github.io/images/cristiano.jpg" height="25" width="25"> - Minha Página Github](https://sspectro.github.io/#home "Minha Página no github")<br>
 
-
-
-><span style="color:383E42"><b>Licença:</b> </span> Distribuído sobre a licença `Software Livre`. Veja Licença **[MIT](https://opensource.org/license/mit/)**.
+><span style="color:383E42"><b>Licença:</b> </span> Distribuído sobre a licença `Software Livre`. Veja Licença **[MIT](https://github.com/sspectro/Net-Core6-Com-Bootstrap5/blob/main/LICENSE)**.
