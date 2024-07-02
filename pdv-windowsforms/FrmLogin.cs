@@ -18,8 +18,6 @@ namespace pdv_windowsforms
         string sql;
         MySqlCommand cmd;
 
-        string id = "";
-        string cargoAntigo = "";
         public FrmLogin()
         {
             InitializeComponent();
@@ -61,7 +59,10 @@ namespace pdv_windowsforms
                 else
                 {
                     MessageBox.Show("Usuário e/ou senha inválido!");
-                    return;
+                    txtSenha.Text = "";
+                    txtUsuario.Text = "";
+                    txtUsuario.Focus();
+                    //return;
                 }
                 con.fecharConexao();
 
